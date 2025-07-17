@@ -24,6 +24,7 @@ This project is a web-based application to help you **manage and track your pers
 - [Future Updates](#future-updates)
 - [Credits](#credits)
 
+---
 
 ### 🔧 **_Technologies Used_**
 
