@@ -4,7 +4,6 @@ require('dotenv').config()
 const session = require('express-session')
 const path = require('path')
 
-
 // Initialize app
 const app = express()
 
@@ -18,17 +17,13 @@ const port = process.env.PORT ? process.env.PORT : 3000
 const methodOverride = require('method-override')
 const morgan = require('morgan')
 
-
 // Require passUserToView & isSignedIn middlewares
-
 
 // use MiddleWares
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(morgan('dev'))
 app.use(express.static(path.join(__dirname, 'public')))
-
-
 
 // Session Configurations
 app.use(
@@ -41,20 +36,16 @@ app.use(
 
 //passUserToView middleware
 
-
 // Root Route
 app.get('/', (req, res) => {
-  res.send('Your app is connected . . . ')
+  res.render('index.ejs')
 })
 
 // Require Routers
 
-
 // use Routers
-
 
 // Listener
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`)
 })
-
