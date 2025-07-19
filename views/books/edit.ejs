@@ -1,0 +1,65 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<%- include('../partials/_nav') %>
+
+<section class="edit-book-form">
+  <h1>Edit Book</h1>
+
+  <form action="/books/<%= book._id  %>?_method=PUT" method="POST">
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" value="<%= book.title %>"/>
+    <br />
+
+    <label for="author">Author:</label>
+    <input type="text" name="author" id="author" value="<%= book.author %>"/>
+    <br />
+
+    <label for="description">Description:</label>
+    <input type="text" name="description" id="description" value="<%= book.description %>"/>
+    <br />
+    <label for="language">language:</label>
+    <select name="language" id="language">
+      <option value="Arabic" <%= book.language === "Arabic" ? "selected": "" %>>Arabic</option>
+      <option value="English" <%= book.language === "English" ? "selected": "" %>>English</option>
+    </select>
+    <br />
+
+    <label for="genre">genre</label>
+    <select name="genre" id="genre">
+      <option value="Fiction" <%= book.genre === "Fiction" ? "selected": "" %>>Fiction</option>
+      <option value="Non-Fiction" <%= book.genre === "Non-Fiction" ? "selected": "" %>>Non-Fiction</option>
+      <option value="Science-Fiction" <%= book.genre === "Science-Fiction" ? "selected": "" %>>Science Fiction</option>
+      <option value="Fantasy" <%= book.genre === "Fantasy" ? "selected": "" %>>Fantasy</option>
+      <option value="Mystery" <%= book.genre === "Mystery" ? "selected": "" %>>Mystery</option>
+      <option value="Romance" <%= book.genre === "Romance" ? "selected": "" %>>Romance</option>
+      <option value="Historical" <%= book.genre === "Historical" ? "selected": "" %>>Historical</option>
+      <option value="Biography" <%= book.genre === "Biography" ? "selected": "" %>>Biography</option>
+      <option value="Self-Help" <%= book.genre === "Self-Help" ? "selected": "" %>>Self Help</option>
+      <option value="Philosophy" <%= book.genre === "Philosophy" ? "selected": "" %>>Philosophy</option>
+      <option value="Poetry" <%= book.genre === "Poetry" ? "selected": "" %>>Poetry</option>
+      <option value="Horror" <%= book.genre === "Horror" ? "selected": "" %>>Horror</option>
+      <option value="Young-Adult" <%= book.genre === "Young-Adult" ? "selected": "" %>>Young Adult</option>
+      <option value="Children" <%= book.genre === "Children" ? "selected": "" %>>Children</option>
+      <option value="Science" <%= book.genre === "Science" ? "selected": "" %>>Science</option>
+      <option value="Technology" <%= book.genre === "Technology" ? "selected": "" %>>Technology</option>
+      <option value="Religion" <%= book.genre === "Religion" ? "selected": "" %>>Religion</option>
+      <option value="Art" <%= book.genre === "Art" ? "selected": "" %>>Art</option>
+      <option value="Comics" <%= book.genre === "Comics" ? "selected": "" %>>Comics</option>
+    </select>
+    <br />
+
+    <label for="imgUrl">Image URL:</label>
+    <input type="text" name="imgUrl" id="imgUrl" value="<%= book.imgUrl %>"/>
+    <br />
+
+    <button type="submit">Save</button>
+  </form>
+</section>

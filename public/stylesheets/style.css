@@ -1,0 +1,236 @@
+* {
+  margin: 0;
+}
+button {
+  all: unset;
+}
+
+:root {
+  --Platinum: #cfdbd5;
+  --Alabaster: #e8eddf;
+  --Saffron: #f5cb5c;
+  --Eerieblack: #242423;
+  --Jet: #333533;
+  --heading-font: 'Dancing Script', cursive;
+  --general-font: 'Winky Rough', sans-serif;
+  --form-btn-color: #3498db;
+  --card-desc: #555;
+  --card-author: #7f8c8d;
+  --card-title: #2c3e50;
+}
+
+/*  */
+/* Book Card */
+.all-books {
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3vmin;
+  font-family: var(--general-font);
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* width: 260px; */
+  width: 30vmin;
+  border-radius: 1.5vmin;
+  background-color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  margin-bottom: 6vmin;
+}
+.book-card:hover {
+  transform: translateY(-8px);
+}
+.book-card img {
+  width: 100%;
+  height: 42vmin;
+}
+.book-info {
+  padding: 1.5vmax;
+}
+.book-info h2 {
+  font-size: 3vmin;
+  margin: 0 0 8px 0;
+  color: var(--card-title);
+}
+.book-info .author {
+  font-size: 2vmin;
+  color: var(--card-author);
+  margin-bottom: 12px;
+}
+.book-info .description {
+  font-size: 1.6vmin;
+  color: var(--card-desc);
+  max-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*  */
+.new-book-form,
+.edit-book-form {
+  font-family: var(--general-font);
+  max-width: 500px;
+  max-height: 760px;
+  margin: 6vmin auto;
+  padding: 4vmin;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.new-book-form h1,
+.edit-book-form h1 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #2c3e50;
+}
+
+/* Form elements */
+form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+form input,
+select {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+form input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+/* Submit Button */
+form button[type='submit'],
+.book-btns button,
+.add-new-btb button {
+  width: 95%;
+  padding: 12px;
+  background-color: var(--form-btn-color);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button[type='submit']:hover,
+.add-new-btb button:hover {
+  background-color: #2980b9;
+}
+
+/*  */
+.books-hero-h1 {
+  font-family: var(--heading-font);
+}
+.books-hero-p {
+  font-family: var(--general-font);
+}
+
+.add-new-btb button {
+  width: 50%;
+}
+
+.bookcard {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* width: 260px; */
+  width: 30vmin;
+  border-radius: 1.5vmin;
+  background-color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  margin-bottom: 6vmin;
+}
+.bookcard:hover {
+  transform: translateY(-8px);
+}
+.bookcard img {
+  width: 100%;
+  height: 42vmin;
+}
+.book-info {
+  padding: 1.5vmax;
+}
+.book-info h2 {
+  font-size: 3vmin;
+  margin: 0 0 8px 0;
+  color: var(--card-title);
+}
+.book-info .author {
+  font-size: 2vmin;
+  color: var(--card-author);
+  margin-bottom: 12px;
+}
+.book-info .description {
+  font-size: 1.6vmin;
+  color: var(--card-desc);
+  max-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.show-book-section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+  font-family: var(--general-font);
+}
+.show-book-section .book-info {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 80%;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+#book-title {
+  font-size: 4vmin;
+}
+#book-author {
+  font-size: 2.5vmin;
+}
+#book-desc,
+#book-copies {
+  padding-top: 5vmin;
+  font-size: 3vmin;
+}
+#book-desc {
+  overflow: scroll;
+  height: 100%;
+}
+.show-book-section .book-btns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  height: 30%;
+  gap: 4vmin;
+}
+.show-book-section p .book-btns button {
+  width: 11vmin;
+  height: 5vmin;
+  font-size: 2vmin;
+}
+#delete-btn {
+  background-color: red;
+}
