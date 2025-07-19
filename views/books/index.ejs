@@ -1,0 +1,53 @@
+<%- include('../partials/_nav') %>
+
+<!-- Hero Section -->
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light books-hero-h1">Book Collection</h1>
+      <p class="lead text-body-secondary books-hero-p">
+        Welcome to our library collection. Each book here has been carefully
+        selected and cherished. Whether you're looking for timeless wisdom or
+        modern insights, we hope you find something that resonates with you.
+      </p>
+      <a href="/books/new" class="add-new-btb"
+        ><button>Add a New Book</button></a
+      >
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <!-- Search Area  -->
+  <form
+    class="col-12 col-lg-auto mb-5 focus-ring rounded-3"
+    action=""
+    method="POST"
+  >
+    <input
+      type="search"
+      class="form-control form-control-dark text-bg-light border-dark border-opacity-50"
+      placeholder="Search..."
+      aria-label="Search"
+      name="search"
+    />
+  </form>
+</div>
+
+<section class="all-books">
+  <% books.forEach(book => { %>
+  <article class="book-card">
+    <a href="/books/<%= book._id %>"
+      ><img src="<%= book.imgUrl %>" alt="Book cover for <%= book.title %>"
+    /></a>
+    <div class="book-info">
+      <a href="/books/<%= book._id %>">
+        <h2><%= book.title %></h2>
+      </a>
+      <p class="author">by <%= book.author %></p>
+      <p class="description"><%= book.description %></p>
+    </div>
+  </article>
+  <% }); %>
+</section>
+<!-- End of Books Container -->

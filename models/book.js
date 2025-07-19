@@ -34,6 +34,7 @@ const bookSchema = new mongoose.Schema(
     },
     language: {
       type: String,
+      enum: ['Arabic', 'English'],
       required: true
     },
     imgUrl: {
@@ -45,7 +46,7 @@ const bookSchema = new mongoose.Schema(
       enum: [
         'Fiction',
         'Non-Fiction',
-        'Science Fiction',
+        'Science-Fiction',
         'Fantasy',
         'Mystery',
         'Thriller',
@@ -56,7 +57,7 @@ const bookSchema = new mongoose.Schema(
         'Philosophy',
         'Poetry',
         'Horror',
-        'Young Adult',
+        'Young-Adult',
         'Children',
         'Science',
         'Technology',
@@ -81,3 +82,7 @@ const bookSchema = new mongoose.Schema(
     timestamps: true // createdAt & updatedAt
   }
 )
+
+const Book = mongoose.model('Book', bookSchema)
+
+module.exports = Book
