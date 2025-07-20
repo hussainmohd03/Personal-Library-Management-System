@@ -46,3 +46,23 @@ exports.books_borrow_put = async (req, res) => {
 
   res.redirect(`/books/${req.params.bookId}`)
 }
+
+//return
+exports.books_return_get = async (req, res) => {
+  const book = await Book.findById(req.params.bookId)
+  const borrowInfo = book.borrowHistory.pop()
+
+  await book.updateOne({ $pop: { borrowHistory: -1 } })
+
+  res.render(`books/return.ejs`, { book, borrowInfo })
+}
+
+exports.books_return_put = async (req, res) => {
+  const book = await Book.findById(req.params.bookId)
+
+  book.isBorrowed = false
+  book.borrowHistory.push(req.body)
+  book.save()
+
+  res.redirect(`/books/${req.params.bookId}`)
+}

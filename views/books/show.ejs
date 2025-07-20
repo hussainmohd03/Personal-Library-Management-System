@@ -24,7 +24,7 @@
     <div class="book-btns">
       <a href="/books/<%= book._id %>/edit" class="edit-btn"><button>Edit Book</button></a>
       <% if(book.isBorrowed){ %>
-        <button>Book is already borrowed</button>
+        <a href="/books/<%= book._id %>/return" class="edit-btn"><button>Return the book</button></a>
       <%}else{%>
       <a href="/books/<%= book._id %>/borrow" class="edit-btn"><button>Register as Borrowed</button></a>
       <%}%>
