@@ -1,5 +1,4 @@
 const Book = require('../models/book')
-// const Borrow = require('../models/book')
 
 // APIs
 exports.books_create_get = async (req, res) => {
@@ -29,6 +28,7 @@ exports.books_delete_delete = async (req, res) => {
   await Book.findByIdAndDelete(req.params.bookId)
   res.redirect('/books')
 }
+
 
 //borrow
 
@@ -70,4 +70,15 @@ exports.books_return_put = async (req, res) => {
 //borrowed books
 exports.books_index_get_borrowed = async (req, res) => {
   res.render('books/borrowed.ejs')
+
+exports.books_search_post = async (req, res) => {
+  const queryString = req.body.search
+  const queryStrings = queryString.split(' ')
+  allQueries = []
+  queryStrings.forEach((element) => {
+    allQueries.push({ title: { $regex: String(element) } })
+  })
+  let books = await Book.find({ $or: allQueries })
+  res.render('books/index.ejs', { books })
+
 }
