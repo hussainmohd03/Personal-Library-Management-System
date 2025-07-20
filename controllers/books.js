@@ -30,8 +30,13 @@ exports.books_delete_delete = async (req, res) => {
   res.redirect('/books')
 }
 exports.books_search_post = async (req, res) => {
-  const books = await Book.find({ title: req.body.search })
-  if (!books || books.length === 0)
-    res.status(400).send({ error: 'No books Available' })
-  res.status(200).render('books/index.ejs', { books })
+  const queryString = req.body.search
+  const queryStrings = queryString.split(' ')
+  allQueries = []
+  queryStrings.forEach((element) => {
+    allQueries.push({ title: { $regex: String(element) } })
+  })
+  const books = await Book.find({ $or: allQueries })
+  if (!books || books.length === 0) res.send({ error: 'No books Available' })
+  res.render('books/index.ejs', { books })
 }
