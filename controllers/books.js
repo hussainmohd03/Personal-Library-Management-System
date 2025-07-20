@@ -1,5 +1,5 @@
 const Book = require('../models/book')
-
+const { all } = require('../routes/auth')
 
 // APIs
 exports.books_create_get = async (req, res) => {
@@ -28,4 +28,14 @@ exports.books_update_put = async (req, res) => {
 exports.books_delete_delete = async (req, res) => {
   await Book.findByIdAndDelete(req.params.bookId)
   res.redirect('/books')
+}
+exports.books_search_post = async (req, res) => {
+  const queryString = req.body.search
+  const queryStrings = queryString.split(' ')
+  allQueries = []
+  queryStrings.forEach((element) => {
+    allQueries.push({ title: { $regex: String(element) } })
+  })
+  let books = await Book.find({ $or: allQueries })
+  res.render('books/index.ejs', { books })
 }
