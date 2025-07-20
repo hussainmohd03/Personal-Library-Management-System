@@ -36,7 +36,6 @@ exports.books_search_post = async (req, res) => {
   queryStrings.forEach((element) => {
     allQueries.push({ title: { $regex: String(element) } })
   })
-  const books = await Book.find({ $or: allQueries })
-  if (!books || books.length === 0) res.send({ error: 'No books Available' })
+  let books = await Book.find({ $or: allQueries })
   res.render('books/index.ejs', { books })
 }
