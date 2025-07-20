@@ -69,6 +69,5 @@ exports.books_return_put = async (req, res) => {
 
 //borrowed books
 exports.books_index_get_borrowed = async (req, res) => {
-  const books = await Book.find()
-  res.render('books/borrowed.ejs', { books })
+  res.render('books/borrowed.ejs')
 }
