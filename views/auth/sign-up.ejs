@@ -1,0 +1,20 @@
+<%- include("../partials/_nav") %>
+
+    <h1>Create a New Account</h1>
+
+    <form action="/auth/sign-up" method="post">
+        <label for="username" value="text">Username</label>
+        <input type="text" name="username">
+        <br>
+
+        <label for="password" value="text">Password</label>
+        <input type="password" name="password">
+        <br>
+
+        <label for="confirm password" value="text">Confirm Password</label>
+        <input type="password" name="username">
+        <br>
+
+        <button type="submit">Sign up</button>
+
+    </form>
