@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <%- include('../partials/_nav') %>
+</html>
+
+<section class="borrow-book-form">
+  <h1>Borrow <%=book.title%></h1>
+
+  <form action="/books/<%= book._id  %>/borrow?_method=PUT" method="POST">
+    <label for="borrowerName">Borrower name:</label>
+    <input type="text" name="borrowerName" id="borrowerName" />
+    <br />
+
+    <label for="borrowedAt">Borrowed at:</label>
+    <input type="date" name="borrowedAt" id="borrowedAt" />
+    <br />
+
+    <label for="exReturnDate">Expected return date:</label>
+    <input type="date" name="exReturnDate" id="exReturnDate" />
+    <br />
+
+    <button type="submit">Borrow</button>
+  </form>
+</section>

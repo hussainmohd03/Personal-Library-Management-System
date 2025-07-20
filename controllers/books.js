@@ -1,5 +1,4 @@
 const Book = require('../models/book')
-const { all } = require('../routes/auth')
 
 // APIs
 exports.books_create_get = async (req, res) => {
@@ -29,6 +28,49 @@ exports.books_delete_delete = async (req, res) => {
   await Book.findByIdAndDelete(req.params.bookId)
   res.redirect('/books')
 }
+
+
+//borrow
+
+exports.books_borrow_get = async (req, res) => {
+  // const currentUser = await User.findById(req.session.user._id)
+  const book = await Book.findById(req.params.bookId)
+  res.render(`books/borrow.ejs`, { book })
+}
+
+exports.books_borrow_put = async (req, res) => {
+  const book = await Book.findById(req.params.bookId)
+  book.isBorrowed = true
+  book.borrowHistory.push(req.body)
+  book.save()
+
+  res.redirect(`/books/${req.params.bookId}`)
+}
+
+//return
+exports.books_return_get = async (req, res) => {
+  const book = await Book.findById(req.params.bookId)
+  const borrowInfo = book.borrowHistory.pop()
+
+  await book.updateOne({ $pop: { borrowHistory: -1 } })
+
+  res.render(`books/return.ejs`, { book, borrowInfo })
+}
+
+exports.books_return_put = async (req, res) => {
+  const book = await Book.findById(req.params.bookId)
+
+  book.isBorrowed = false
+  book.borrowHistory.push(req.body)
+  book.save()
+
+  res.redirect(`/books/${req.params.bookId}`)
+}
+
+//borrowed books
+exports.books_index_get_borrowed = async (req, res) => {
+  res.render('books/borrowed.ejs')
+
 exports.books_search_post = async (req, res) => {
   const queryString = req.body.search
   const queryStrings = queryString.split(' ')
@@ -38,4 +80,5 @@ exports.books_search_post = async (req, res) => {
   })
   let books = await Book.find({ $or: allQueries })
   res.render('books/index.ejs', { books })
+
 }
