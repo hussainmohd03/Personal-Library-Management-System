@@ -23,7 +23,12 @@
     <p id="book-desc"><%= book.description %></p>
     <div class="book-btns">
       <a href="/books/<%= book._id %>/edit" class="edit-btn"><button>Edit Book</button></a>
+      <% if(book.isBorrowed){ %>
+        <button>Book is already borrowed</button>
+      <%}else{%>
       <a href="/books/<%= book._id %>/borrow" class="edit-btn"><button>Register as Borrowed</button></a>
+      <%}%>
+
       <form action="/books/<%= book._id %>?_method=DELETE" method="POST" class="delete">
         <button type="submit" id="delete-btn">Delete <%= book.title %></button>
       </form>

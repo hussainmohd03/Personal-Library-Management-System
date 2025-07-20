@@ -1,5 +1,5 @@
 const Book = require('../models/book')
-
+// const Borrow = require('../models/book')
 
 // APIs
 exports.books_create_get = async (req, res) => {
@@ -28,4 +28,21 @@ exports.books_update_put = async (req, res) => {
 exports.books_delete_delete = async (req, res) => {
   await Book.findByIdAndDelete(req.params.bookId)
   res.redirect('/books')
+}
+
+//borrow
+
+exports.books_borrow_get = async (req, res) => {
+  // const currentUser = await User.findById(req.session.user._id)
+  const book = await Book.findById(req.params.bookId)
+  res.render(`books/borrow.ejs`, { book })
+}
+
+exports.books_borrow_put = async (req, res) => {
+  const book = await Book.findById(req.params.bookId)
+  book.isBorrowed = true
+  book.borrowHistory.push(req.body)
+  book.save()
+
+  res.redirect(`/books/${req.params.bookId}`)
 }
