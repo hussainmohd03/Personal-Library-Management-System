@@ -1,7 +1,6 @@
 <%- include('../partials/_nav') %>
 <section class="return-book-form">
   <h1>Return <%=book.title%></h1>
-  <% console.log(borrowInfo) %>
 
   <form action="/books/<%= book._id  %>/return?_method=PUT" method="POST">
     <label for="borrowerName">Borrowed by:</label>

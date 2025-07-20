@@ -17,4 +17,7 @@ router.put('/:bookId/borrow', bookCtrl.books_borrow_put)
 //return
 router.get('/:bookId/return', bookCtrl.books_return_get)
 router.put('/:bookId/return', bookCtrl.books_return_put)
+
+//borrowed books
+router.get('/books/borrowed', bookCtrl.books_index_get_borrowed)
 module.exports = router

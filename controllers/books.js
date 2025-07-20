@@ -66,3 +66,9 @@ exports.books_return_put = async (req, res) => {
 
   res.redirect(`/books/${req.params.bookId}`)
 }
+
+//borrowed books
+exports.books_index_get_borrowed = async (req, res) => {
+  const books = await Book.find()
+  res.render('books/borrowed.ejs', { books })
+}
