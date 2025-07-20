@@ -9,5 +9,6 @@ router.get('/:bookId', bookCtrl.books_show_get)
 router.get('/:bookId/edit', bookCtrl.books_edit_get)
 router.put('/:bookId', bookCtrl.books_update_put)
 router.delete('/:bookId', bookCtrl.books_delete_delete)
+router.post('/search', bookCtrl.books_search_post)
 
 module.exports = router
