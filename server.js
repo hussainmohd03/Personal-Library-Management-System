@@ -23,7 +23,7 @@ const morgan = require('morgan')
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(morgan('dev'))
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static('public'))
 
 // Session Configurations
 app.use(

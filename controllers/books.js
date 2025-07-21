@@ -5,6 +5,8 @@ exports.books_create_get = async (req, res) => {
   res.render('books/new.ejs')
 }
 exports.books_create_post = async (req, res) => {
+  req.body.imgUrl = req.file.path
+  req.body.imgUrl = req.body.imgUrl.replace('public', '')
   await Book.create(req.body)
   res.redirect('/books')
 }

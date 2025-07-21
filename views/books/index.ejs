@@ -38,8 +38,8 @@
 <section class="all-books">
   <% books.forEach(book => { %>
   <article class="book-card">
-    <a href="/books/<%= book._id %>"
-      ><img src="<%= book.imgUrl %>" alt="Book cover for <%= book.title %>"
+    <a href="/books/<%= book._id %>">
+      <img src="<%= book.imgUrl %>" alt="Book cover for <%= book.title %>"
     /></a>
     <div class="book-info">
       <a href="/books/<%= book._id %>">
