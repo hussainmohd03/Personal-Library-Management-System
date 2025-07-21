@@ -18,6 +18,8 @@ const methodOverride = require('method-override')
 const morgan = require('morgan')
 
 // Require passUserToView & isSignedIn middlewares
+const passUserToView = require('./middleware/pass')
+const isAuthenticated = require('./middleware/is-auth')
 
 // use MiddleWares
 app.use(express.urlencoded({ extended: true }))
@@ -35,6 +37,7 @@ app.use(
 )
 
 //passUserToView middleware
+app.use(passUserToView)
 
 // Root Route
 app.get('/', (req, res) => {
@@ -46,10 +49,8 @@ const authRouter = require('./routes/auth')
 const bookRouter = require('./routes/books')
 
 // use Routers
-app.use('/books', bookRouter)
+app.use('/books', isAuthenticated, bookRouter)
 app.use('/auth', authRouter)
-
-// use isAuthenticated middleware
 
 // Listener
 app.listen(port, () => {

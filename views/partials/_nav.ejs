@@ -43,14 +43,14 @@
             <li class="nav-item"><a class="nav-link" href="">Profile</a></li>
             <li class="nav-item"><a class="nav-link" href="/books/new">Add</a></li>
 
-            <!-- add if conditional here -->
+            <% if (!user) { %>
             <div class="text-end">
               <a class="btn btn-warning me-2" href="/auth/sign-in">Login</a>
               <a class="btn btn-warning me-2" href="/auth/sign-up">Register</a>
-            <!-- add if conditional here -->
+            <% } else { %>
 
               <a class="btn btn-warning" href="/auth/sign-out">Log Out</a>
-
+              <% } %>
           </ul>
         </div>
       </div>

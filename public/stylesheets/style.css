@@ -75,7 +75,9 @@ button {
 .new-book-form,
 .edit-book-form,
 .borrow-book-form,
-.return-book-form {
+.return-book-form,
+.signIn-form,
+.signUp-form {
   font-family: var(--general-font);
   max-width: 500px;
   max-height: 900px;
@@ -90,7 +92,9 @@ button {
 .new-book-form h1,
 .edit-book-form h1,
 .borrow-book-form h1,
-.return-book-form h1 {
+.return-book-form h1,
+.signIn-form h1,
+.signUp-form h1 {
   text-align: center;
   margin-bottom: 24px;
   color: #2c3e50;
