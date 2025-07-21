@@ -42,7 +42,6 @@ exports.books_search_post = async (req, res) => {
 //borrow
 
 exports.books_borrow_get = async (req, res) => {
-  // const currentUser = await User.findById(req.session.user._id)
   const book = await Book.findById(req.params.bookId)
   res.render(`books/borrow.ejs`, { book })
 }
@@ -60,16 +59,15 @@ exports.books_borrow_put = async (req, res) => {
 exports.books_return_get = async (req, res) => {
   const book = await Book.findById(req.params.bookId)
 
-  const borrowInfo = book.borrowHistory.pop()
-
-  await book.updateOne({ $pop: { borrowHistory: -1 } })
+  const borrowInfo = book.borrowHistory[book.borrowHistory.length - 1]
 
   res.render(`books/return.ejs`, { book, borrowInfo })
 }
 
 exports.books_return_put = async (req, res) => {
   const book = await Book.findById(req.params.bookId)
-  book.borrowHistory.push(req.body)
+  book.borrowHistory[book.borrowHistory.length - 1] = req.body
+
   book.isBorrowed = false
   await book.save()
 
