@@ -47,6 +47,8 @@ const bookRouter = require('./routes/books')
 
 // use Routers
 app.use('/books', bookRouter)
+app.use('/auth', authRouter)
+
 // use isAuthenticated middleware
 
 // Listener

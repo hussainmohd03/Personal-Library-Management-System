@@ -1,0 +1,46 @@
+<%- include("../partials/_nav") %>
+
+
+<h1>Create a New Account</h1>
+
+<form action="/auth/sign-up" method="post" enctype="multipart/form-data">
+    <label for="username">Username</label>
+    <input type="text" name="username" required>
+    <br>
+
+    <label for="profilePicture">Profile Picture</label>
+    <input type="file" name="profilePicture" accept="image/*">
+    <br>
+
+    <label for="password">Password</label>
+    <input type="password" name="password" required>
+    <br>
+
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" name="confirmPassword" required>
+    <br>
+
+    <button type="submit">Sign up</button>
+</form>
+    <!-- <h1>Create a New Account</h1>
+
+    <form action="/auth/sign-up" method="post">
+        <label for="username" value="text">Username</label>
+        <input type="text" name="username">
+        <br>
+
+        <label for="profile picture">Profile Picture</label>
+        <input type="text" name="profile picture">
+        <br>
+
+        <label for="password" value="text">Password</label>
+        <input type="password" name="password">
+        <br>
+
+        <label for="confirm password" value="text">Confirm Password</label>
+        <input type="password" name="username">
+        <br>
+
+        <button type="submit">Sign up</button>
+
+    </form> -->
