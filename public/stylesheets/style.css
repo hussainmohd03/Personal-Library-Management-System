@@ -73,7 +73,9 @@ button {
 
 /*  */
 .new-book-form,
-.edit-book-form {
+.edit-book-form,
+.borrow-book-form,
+.return-book-form {
   font-family: var(--general-font);
   max-width: 500px;
   max-height: 760px;
@@ -86,7 +88,9 @@ button {
 
 /* Header */
 .new-book-form h1,
-.edit-book-form h1 {
+.edit-book-form h1,
+.borrow-book-form h1,
+.return-book-form h1 {
   text-align: center;
   margin-bottom: 24px;
   color: #2c3e50;
