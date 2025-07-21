@@ -28,7 +28,16 @@ exports.books_delete_delete = async (req, res) => {
   await Book.findByIdAndDelete(req.params.bookId)
   res.redirect('/books')
 }
-
+exports.books_search_post = async (req, res) => {
+  const queryString = req.body.search
+  const queryStrings = queryString.split(' ')
+  allQueries = []
+  queryStrings.forEach((element) => {
+    allQueries.push({ title: { $regex: String(element) } })
+  })
+  let books = await Book.find({ $or: allQueries })
+  res.render('books/index.ejs', { books })
+}
 
 //borrow
 
@@ -50,6 +59,7 @@ exports.books_borrow_put = async (req, res) => {
 //return
 exports.books_return_get = async (req, res) => {
   const book = await Book.findById(req.params.bookId)
+
   const borrowInfo = book.borrowHistory.pop()
 
   await book.updateOne({ $pop: { borrowHistory: -1 } })
@@ -59,26 +69,15 @@ exports.books_return_get = async (req, res) => {
 
 exports.books_return_put = async (req, res) => {
   const book = await Book.findById(req.params.bookId)
-
-  book.isBorrowed = false
   book.borrowHistory.push(req.body)
-  book.save()
+  book.isBorrowed = false
+  await book.save()
 
   res.redirect(`/books/${req.params.bookId}`)
 }
 
 //borrowed books
 exports.books_index_get_borrowed = async (req, res) => {
-  res.render('books/borrowed.ejs')
-
-exports.books_search_post = async (req, res) => {
-  const queryString = req.body.search
-  const queryStrings = queryString.split(' ')
-  allQueries = []
-  queryStrings.forEach((element) => {
-    allQueries.push({ title: { $regex: String(element) } })
-  })
-  let books = await Book.find({ $or: allQueries })
-  res.render('books/index.ejs', { books })
-
+  const books = await Book.find({ isBorrowed: true })
+  res.render('books/borrowed.ejs', { books })
 }

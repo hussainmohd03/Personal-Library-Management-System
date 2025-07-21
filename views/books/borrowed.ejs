@@ -1,2 +1,22 @@
 <%- include('../partials/_nav') %>
 
+<section class="all-books">
+  <% if (books.length === 0) {%>
+  <article class="book-card">
+    <p>There are no borrowed books currently</p>
+  </article>
+  <% }else{ %> <% books.forEach(book => { %>
+  <article class="book-card">
+    <a href="/books/<%= book._id %>"
+      ><img src="<%= book.imgUrl %>" alt="Book cover for <%= book.title %>"
+    /></a>
+    <div class="book-info">
+      <a href="/books/<%= book._id %>">
+        <h2><%= book.title %></h2>
+      </a>
+      <p class="author">by <%= book.author %></p>
+      <p class="description"><%= book.description %></p>
+    </div>
+  </article>
+  <%})}; %>
+</section>
