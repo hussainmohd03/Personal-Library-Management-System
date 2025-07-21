@@ -11,9 +11,9 @@
         quaerat vel pariatur aperiam? Tempore repellat doloribus enim.
         Obcaecati, quibusdam?
       </p>
-      <!-- <a href="/books/new" class="add-new-btb"
+      <a href="/books/new" class="add-new-btb"
         ><button>Add a New Book</button></a
-      > -->
+      >
     </div>
   </div>
 </section>
@@ -38,8 +38,8 @@
 <section class="all-books">
   <% books.forEach(book => { %>
   <article class="book-card">
-    <a href="/books/<%= book._id %>"
-      ><img src="<%= book.imgUrl %>" alt="Book cover for <%= book.title %>"
+    <a href="/books/<%= book._id %>">
+      <img src="<%= book.imgUrl %>" alt="Book cover for <%= book.title %>"
     /></a>
     <div class="book-info">
       <a href="/books/<%= book._id %>">

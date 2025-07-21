@@ -76,8 +76,17 @@ const bookSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
     },
+    isEbook: {
+      type: Boolean,
+      required: true,
+      default: false
+    },
+    ebookPath: {
+      type: String,
+    },
     borrowHistory: [borrowSchema]
   },
+  
   {
     timestamps: true // createdAt & updatedAt
   }

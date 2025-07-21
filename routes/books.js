@@ -1,13 +1,13 @@
 const router = require('express').Router()
 const bookCtrl = require('../controllers/books')
-
+const uploadBookImg = require('../middleware/Upload_Book_Img')
 // API calls
 
 //borrowed books
 router.get('/borrowed', bookCtrl.books_index_get_borrowed)
 
 router.get('/new', bookCtrl.books_create_get)
-router.post('/new', bookCtrl.books_create_post)
+router.post('/new', uploadBookImg, bookCtrl.books_create_post)
 router.get('', bookCtrl.books_index_get)
 router.get('/:bookId', bookCtrl.books_show_get)
 router.get('/:bookId/edit', bookCtrl.books_edit_get)
