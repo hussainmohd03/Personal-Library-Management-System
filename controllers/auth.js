@@ -9,7 +9,7 @@ exports.auth_signup_get = async (req, res) => {
 }
 exports.auth_signup_post = async (req, res) => {
 
-    const userFinder = await User.findOne({username: req.body.username})
+    const userFinder = await User.findOne({username: req.params.email})
     if (userFinder){
         return res.send("The username was taken!! please type another")
     }
@@ -42,7 +42,7 @@ if(!validPassword){
     return res.send("password is not found! please try again")
 }
 
-req.session.userFinding = {
+req.session.user = {
     username: userFinder.username,
     _id: userFinder._id
 }
