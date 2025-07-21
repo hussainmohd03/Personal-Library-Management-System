@@ -30,7 +30,7 @@
       <a href="/books/<%= book._id %>/borrow" class="edit-btn"><button>Register as Borrowed</button></a>
       <%}%>
       <%} else {%>
-        <a href="<%= book.ebookPath %>" class="edit-btn"><button>Read</button></a>
+        <a href="<%= book.ebookPath %>" class="edit-btn" target="_blank"><button>Read</button></a>
         <%}%>
       <form action="/books/<%= book._id %>?_method=DELETE" method="POST" class="delete">
         <button type="submit" id="delete-btn">Delete <%= book.title %></button>
