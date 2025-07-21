@@ -5,7 +5,12 @@ exports.books_create_get = async (req, res) => {
   res.render('books/new.ejs')
 }
 exports.books_create_post = async (req, res) => {
-  req.body.imgUrl = req.file.path
+  if (req.body.isEbook === 'on') {
+    req.body.isEbook = true
+    req.body.ebookPath = req.files.ebookPath[0].path
+    req.body.ebookPath = req.body.ebookPath.replace('public', '')
+  }
+  req.body.imgUrl = req.files.imgUrl[0].path
   req.body.imgUrl = req.body.imgUrl.replace('public', '')
   await Book.create(req.body)
   res.redirect('/books')

@@ -78,7 +78,7 @@ button {
 .return-book-form {
   font-family: var(--general-font);
   max-width: 500px;
-  max-height: 760px;
+  max-height: 900px;
   margin: 6vmin auto;
   padding: 4vmin;
   background-color: #ffffff;
@@ -117,6 +117,10 @@ select {
 form input:focus {
   border-color: #3498db;
   outline: none;
+}
+
+form input[type='checkbox'] {
+  align-self: flex-start;
 }
 /* Submit Button */
 form button[type='submit'],

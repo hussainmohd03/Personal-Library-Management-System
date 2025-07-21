@@ -5,7 +5,7 @@
     href="https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/style.css"/>
 </head>
 <%- include('../partials/_nav') %>
 
@@ -23,12 +23,15 @@
     <p id="book-desc"><%= book.description %></p>
     <div class="book-btns">
       <a href="/books/<%= book._id %>/edit" class="edit-btn"><button>Edit Book</button></a>
+      <% if (!book.isEbook) { %>
       <% if(book.isBorrowed){ %>
         <a href="/books/<%= book._id %>/return" class="edit-btn"><button>Return the book</button></a>
       <%}else{%>
       <a href="/books/<%= book._id %>/borrow" class="edit-btn"><button>Register as Borrowed</button></a>
       <%}%>
-
+      <%} else {%>
+        <a href="<%= book.ebookPath %>" class="edit-btn"><button>Read</button></a>
+        <%}%>
       <form action="/books/<%= book._id %>?_method=DELETE" method="POST" class="delete">
         <button type="submit" id="delete-btn">Delete <%= book.title %></button>
       </form>
