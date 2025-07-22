@@ -129,7 +129,8 @@ form input[type='checkbox'] {
 /* Submit Button */
 form button[type='submit'],
 .book-btns button,
-.add-new-btb button {
+.add-new-btb button,
+.confirm-btn {
   width: 95%;
   padding: 12px;
   background-color: var(--form-btn-color);
@@ -247,7 +248,6 @@ form button[type='submit']:hover,
   background-color: red;
 }
 
-
 .show-profile-section {
   display: flex;
   flex-direction: column;
@@ -258,7 +258,6 @@ form button[type='submit']:hover,
   border: black solid 6px;
 }
 
-
 .show-History {
   background-color: #2980b9;
   width: 100%;
@@ -266,16 +265,14 @@ form button[type='submit']:hover,
   border-radius: 20px;
   display: flex;
   border: black solid 6px;
-  
 }
 
 .show-Dashboard-section {
   position: relative;
-  
 }
 
 .profile-page {
-  display: block
+  display: block;
 }
 
 .chart {
@@ -284,7 +281,6 @@ form button[type='submit']:hover,
   justify-self: center;
   align-self: center;
 }
-
 
 /* ---------------------------------------------------- Media Queries ---------------------------------------------------- */
 
@@ -303,4 +299,3 @@ form button[type='submit']:hover,
     margin-right: 35px;
   }
 }
-

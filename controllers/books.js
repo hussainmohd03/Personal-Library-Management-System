@@ -68,8 +68,10 @@ exports.books_borrow_put = async (req, res) => {
   book.isBorrowed = true
   book.borrowHistory.push(req.body)
   book.save()
+  let lastIndex = book.borrowHistory.length
+  let borrower = book.borrowHistory[lastIndex - 1]
 
-  res.redirect(`/books/${req.params.bookId}`)
+  res.render('books/confirm.ejs', { borrower })
 }
 
 //return
