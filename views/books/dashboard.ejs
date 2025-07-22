@@ -1,3 +1,4 @@
+<!-- This page displays an error on VsCode, You have to change the language mode at the bottom from HTML to EJS for the error to disappear -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,6 +12,28 @@
     <div class="chart">
       <canvas id="myChart"></canvas>
     </div>
+    <h3 id="popularGenres">
+      Based on your history here's some <%=popularGenre%> books:
+    </h3>
+
+    <section class="all-books">
+      <% book.forEach(book => { if(book.genre === popularGenre){ %>
+
+      <article class="book-card">
+        <a href="/books/<%= book._id %>">
+          <img src="<%= book.imgUrl %>" alt="Book cover for <%= book.title %>"
+        /></a>
+        <div class="book-info">
+          <a href="/books/<%= book._id %>">
+            <h2><%= book.title %></h2>
+          </a>
+          <p class="author">by <%= book.author %></p>
+          <p class="description"><%= book.description %></p>
+        </div>
+      </article>
+      <%} }); %>
+    </section>
+
     <script>
       const data = {
         labels: [
@@ -68,5 +91,3 @@
     <%- include('../partials/_dashboard') %>
   </body>
 </html>
-
-<!-- add colors, edit style,  -->

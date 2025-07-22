@@ -119,7 +119,6 @@ exports.books_index_get_dashboard = async (req, res) => {
   const bookGenre = book.map((book) => book.genre)
 
   //loop
-
   const genreCounts = genres.map((genre) => {
     let count = 0
     for (let i = 0; i < book.length; i++) {
@@ -129,6 +128,21 @@ exports.books_index_get_dashboard = async (req, res) => {
     }
     return count
   })
+  //genres[populargenre]
 
-  res.render('books/dashboard.ejs', { book, bookGenre, genreCounts })
+  let popularGenre
+  let j = 0
+  for (let i = 0; i < genreCounts.length; i++) {
+    if (genreCounts[i] > j) {
+      j = genreCounts[i]
+      popularGenre = genres[i]
+    }
+  }
+  console.log(j, popularGenre)
+
+  res.render('books/dashboard.ejs', {
+    book,
+    genreCounts,
+    popularGenre
+  })
 }
