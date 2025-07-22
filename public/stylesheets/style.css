@@ -247,6 +247,9 @@ form button[type='submit']:hover,
   background-color: red;
 }
 
+/* break */
+
+
 
 .show-profile-section {
   display: flex;
@@ -256,8 +259,23 @@ form button[type='submit']:hover,
   width: 40%;
   height: 45%;
   border: black solid 6px;
+  align-items: center;
+  
+}
+.picture{
+  width: 30%;
+  height: 33%;
 }
 
+.edit-button {
+
+
+  background-color: #7f8c8d;
+  border: black solid 3px;
+
+  
+
+}
 
 .show-History {
   background-color: #2980b9;
@@ -276,7 +294,7 @@ form button[type='submit']:hover,
 
 .profile-page {
   display: block
-}
+} 
 
 .chart {
   height: 700px;
