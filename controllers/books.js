@@ -83,7 +83,6 @@ exports.books_index_get_borrowed = async (req, res) => {
 //dashboard
 exports.books_index_get_dashboard = async (req, res) => {
   const book = await Book.find()
-  const genreArr = []
   const genres = [
     'Fiction',
     'Non-Fiction',
