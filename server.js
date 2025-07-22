@@ -3,7 +3,7 @@ const express = require('express')
 require('dotenv').config()
 const session = require('express-session')
 const path = require('path')
-
+const multer = require('multer')
 // Initialize app
 const app = express()
 
@@ -34,8 +34,6 @@ app.use(
   })
 )
 
-//passUserToView middleware
-
 // Root Route
 app.get('/', (req, res) => {
   res.render('index.ejs')
@@ -44,10 +42,13 @@ app.get('/', (req, res) => {
 // Require Routers
 const authRouter = require('./routes/auth')
 const bookRouter = require('./routes/books')
+const profileRouter = require('./routes/profile')
+
 
 // use Routers
-app.use('/books', bookRouter)
 app.use('/auth', authRouter)
+app.use('/books', bookRouter)
+app.use('/profile', profileRouter)
 
 // use isAuthenticated middleware
 
