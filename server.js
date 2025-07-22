@@ -3,7 +3,7 @@ const express = require('express')
 require('dotenv').config()
 const session = require('express-session')
 const path = require('path')
-
+const multer = require('multer')
 // Initialize app
 const app = express()
 
@@ -36,8 +36,10 @@ app.use(
   })
 )
 
+
 //passUserToView middleware
 app.use(passUserToView)
+
 
 // Root Route
 app.get('/', (req, res) => {
@@ -47,10 +49,17 @@ app.get('/', (req, res) => {
 // Require Routers
 const authRouter = require('./routes/auth')
 const bookRouter = require('./routes/books')
+const profileRouter = require('./routes/profile')
+
 
 // use Routers
 app.use('/auth', authRouter)
+app.use('/profile', profileRouter)
 app.use('/books', isAuthenticated, bookRouter)
+// use isAuthenticated middleware
+
+
+
 
 // Listener
 app.listen(port, () => {
