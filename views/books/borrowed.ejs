@@ -1,22 +1,27 @@
 <%- include('../partials/_nav') %>
 
-<section class="all-books">
-  <% if (books.length === 0) {%>
-  <article class="book-card">
-    <p>There are no borrowed books currently</p>
+<section class="borrowed-books-list">
+  <h2 id="borrowed-heading">Borrowed Books</h2>
+  <% if (books.length === 0) { %>
+  <article class="borrowed-book-card empty-state">
+    <p>No books are currently borrowed.</p>
   </article>
-  <% }else{ %> <% books.forEach(book => { %>
-  <article class="book-card">
-    <a href="/books/<%= book._id %>"
-      ><img src="<%= book.imgUrl %>" alt="Book cover for <%= book.title %>"
-    /></a>
-    <div class="book-info">
+  <% } else { %> <% books.forEach(book => { %>
+  <article class="borrowed-book-card">
+    <a href="/books/<%= book._id %>">
+      <img
+        class="borrowed-book-cover"
+        src="<%= book.imgUrl %>"
+        alt="Book cover for <%= book.title %>"
+      />
+    </a>
+    <div class="borrowed-book-info">
       <a href="/books/<%= book._id %>">
-        <h2><%= book.title %></h2>
+        <h2 class="borrowed-book-title"><%= book.title %></h2>
       </a>
-      <p class="author">by <%= book.author %></p>
-      <p class="description"><%= book.description %></p>
+      <p class="borrowed-book-author">by <%= book.author %></p>
+      <p class="borrowed-book-description"><%= book.description %></p>
     </div>
   </article>
-  <%})}; %>
+  <% }) %> <% } %>
 </section>
