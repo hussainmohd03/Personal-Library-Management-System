@@ -247,8 +247,11 @@ form button[type='submit']:hover,
   background-color: red;
 }
 
+/* break */
 
-.show-profile-section {
+
+
+/* .show-profile-section {
   display: flex;
   flex-direction: column;
   background-color: #2980b9;
@@ -276,7 +279,7 @@ form button[type='submit']:hover,
 
 .profile-page {
   display: block
-}
+} */
 
 .chart {
   height: 700px;
