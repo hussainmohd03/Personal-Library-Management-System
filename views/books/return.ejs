@@ -1,0 +1,41 @@
+<%- include('../partials/_nav') %>
+<section class="return-book-form">
+  <h1>Return <%=book.title%></h1>
+
+  <form action="/books/<%= book._id  %>/return?_method=PUT" method="POST">
+    <label for="borrowerName">Borrowed by:</label>
+    <input
+      type="text"
+      name="borrowerName"
+      id="borrowerName"
+      value="<%=borrowInfo.borrowerName%>"
+      readonly
+    />
+
+    <label for="borrowedAt">Borrowed at:</label>
+    <input
+      type="text"
+      name="borrowedAt"
+      id="borrowedAt"
+      value="<%=borrowInfo.borrowedAt%>"
+      readonly
+    />
+    <br />
+
+    <label for="exReturnDate">Expected return date:</label>
+    <input
+      type="text"
+      name="exReturnDate"
+      id="exReturnDate"
+      value="<%=borrowInfo.exReturnDate%>"
+      readonly
+    />
+    <br />
+    <br />
+    <label for="returnedAt">returned at:</label>
+    <input type="date" name="returnedAt" id="returnedAt" />
+    <br />
+
+    <button type="submit">Return</button>
+  </form>
+</section>

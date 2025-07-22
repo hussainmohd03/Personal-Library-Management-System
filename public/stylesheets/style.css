@@ -73,10 +73,14 @@ button {
 
 /*  */
 .new-book-form,
-.edit-book-form {
+.edit-book-form,
+.borrow-book-form,
+.return-book-form,
+.signIn-form,
+.signUp-form {
   font-family: var(--general-font);
   max-width: 500px;
-  max-height: 760px;
+  max-height: 900px;
   margin: 6vmin auto;
   padding: 4vmin;
   background-color: #ffffff;
@@ -86,7 +90,11 @@ button {
 
 /* Header */
 .new-book-form h1,
-.edit-book-form h1 {
+.edit-book-form h1,
+.borrow-book-form h1,
+.return-book-form h1,
+.signIn-form h1,
+.signUp-form h1 {
   text-align: center;
   margin-bottom: 24px;
   color: #2c3e50;
@@ -113,6 +121,10 @@ select {
 form input:focus {
   border-color: #3498db;
   outline: none;
+}
+
+form input[type='checkbox'] {
+  align-self: flex-start;
 }
 /* Submit Button */
 form button[type='submit'],
@@ -235,6 +247,7 @@ form button[type='submit']:hover,
   background-color: red;
 }
 
+
 .show-profile-section {
   display: flex;
   flex-direction: column;
@@ -264,3 +277,11 @@ form button[type='submit']:hover,
 .profile-page {
   display: block
 }
+
+.chart {
+  height: 700px;
+  width: 700px;
+  justify-self: center;
+  align-self: center;
+}
+

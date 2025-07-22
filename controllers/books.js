@@ -1,24 +1,37 @@
 const Book = require('../models/book')
-const { all } = require('../routes/auth')
 
 // APIs
 exports.books_create_get = async (req, res) => {
   res.render('books/new.ejs')
 }
 exports.books_create_post = async (req, res) => {
+  if (req.body.isEbook === 'on') {
+    req.body.isEbook = true
+    req.body.ebookPath = req.files.ebookPath[0].path
+    req.body.ebookPath = req.body.ebookPath.replace('public', '')
+  }
+  req.body.imgUrl = req.files.imgUrl[0].path
+  req.body.imgUrl = req.body.imgUrl.replace('public', '')
+  req.body.owner = req.session.user._id
   await Book.create(req.body)
   res.redirect('/books')
 }
 exports.books_index_get = async (req, res) => {
-  const books = await Book.find()
+  const books = await Book.find({ owner: req.session.user._id })
   res.render('books/index.ejs', { books })
 }
 exports.books_show_get = async (req, res) => {
   const book = await Book.findById(req.params.bookId)
+  if (!book.owner._id.equals(req.session.user._id)) {
+    return res.redirect('/books')
+  }
   res.render('books/show.ejs', { book })
 }
 exports.books_edit_get = async (req, res) => {
   const book = await Book.findById(req.params.bookId)
+  if (!book.owner._id.equals(req.session.user._id)) {
+    return res.redirect('/books')
+  }
   res.render('books/edit.ejs', { book })
 }
 exports.books_update_put = async (req, res) => {
@@ -38,4 +51,96 @@ exports.books_search_post = async (req, res) => {
   })
   let books = await Book.find({ $or: allQueries })
   res.render('books/index.ejs', { books })
+}
+
+//borrow
+
+exports.books_borrow_get = async (req, res) => {
+  const book = await Book.findById(req.params.bookId)
+  if (!book.owner._id.equals(req.session.user._id)) {
+    return res.redirect('/books')
+  }
+  res.render(`books/borrow.ejs`, { book })
+}
+
+exports.books_borrow_put = async (req, res) => {
+  const book = await Book.findById(req.params.bookId)
+  book.isBorrowed = true
+  book.borrowHistory.push(req.body)
+  book.save()
+
+  res.redirect(`/books/${req.params.bookId}`)
+}
+
+//return
+exports.books_return_get = async (req, res) => {
+  const book = await Book.findById(req.params.bookId)
+  if (!book.owner._id.equals(req.session.user._id)) {
+    return res.redirect('/books')
+  }
+  const borrowInfo = book.borrowHistory[book.borrowHistory.length - 1]
+
+  res.render(`books/return.ejs`, { book, borrowInfo })
+}
+
+exports.books_return_put = async (req, res) => {
+  const book = await Book.findById(req.params.bookId)
+  book.borrowHistory[book.borrowHistory.length - 1] = req.body
+
+  book.isBorrowed = false
+  await book.save()
+
+  res.redirect(`/books/${req.params.bookId}`)
+}
+
+//borrowed books
+exports.books_index_get_borrowed = async (req, res) => {
+  const books = await Book.find({
+    isBorrowed: true,
+    owner: req.session.user._id
+  })
+
+  res.render('books/borrowed.ejs', { books })
+}
+
+//dashboard
+exports.books_index_get_dashboard = async (req, res) => {
+  const book = await Book.find({ owner: req.session.user._id })
+  const genres = [
+    'Fiction',
+    'Non-Fiction',
+    'Science-Fiction',
+    'Fantasy',
+    'Mystery',
+    'Thriller',
+    'Romance',
+    'Historical',
+    'Biography',
+    'Self-Help',
+    'Philosophy',
+    'Poetry',
+    'Horror',
+    'Young-Adult',
+    'Children',
+    'Science',
+    'Technology',
+    'Religion',
+    'Art',
+    'Comics'
+  ]
+  const bookGenre = book.map((book) => book.genre)
+
+  //loop
+
+  const genreCounts = genres.map((genre) => {
+    let count = 0
+    for (let i = 0; i < book.length; i++) {
+      if (book[i].genre === genre) {
+        count++
+      }
+    }
+    return count
+  })
+
+  res.render('books/dashboard.ejs', { book, bookGenre, genreCounts })
 }

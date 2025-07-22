@@ -18,12 +18,14 @@ const methodOverride = require('method-override')
 const morgan = require('morgan')
 
 // Require passUserToView & isSignedIn middlewares
+const passUserToView = require('./middleware/pass')
+const isAuthenticated = require('./middleware/is-auth')
 
 // use MiddleWares
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(morgan('dev'))
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static('public'))
 
 // Session Configurations
 app.use(
@@ -33,6 +35,11 @@ app.use(
     saveUninitialized: true
   })
 )
+
+
+//passUserToView middleware
+app.use(passUserToView)
+
 
 // Root Route
 app.get('/', (req, res) => {
@@ -47,10 +54,12 @@ const profileRouter = require('./routes/profile')
 
 // use Routers
 app.use('/auth', authRouter)
-app.use('/books', bookRouter)
 app.use('/profile', profileRouter)
-
+app.use('/books', isAuthenticated, bookRouter)
 // use isAuthenticated middleware
+
+
+
 
 // Listener
 app.listen(port, () => {

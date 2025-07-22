@@ -1,0 +1,16 @@
+
+<!-- from https://www.chartjs.org/docs/latest/getting-started/using-from-node-js.html -->
+<script>
+  const ctx = document.getElementById('myChart').getContext('2d')
+
+  new Chart(ctx, {
+    type: 'polarArea',
+    data: data,
+    options: {
+      title: {
+        display: true,
+        text: 'Number of Books by Genre'
+      }
+    }
+  })
+</script>

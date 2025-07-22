@@ -2,7 +2,7 @@
 
 <section class="new-book-form">
   <h1>Add New Book</h1>
-  <form action="/books/new" method="POST">
+  <form action="/books/new" method="POST" enctype="multipart/form-data">
     <label for="title">Title:</label>
     <input type="text" name="title" id="title" />
     <br />
@@ -45,8 +45,14 @@
     </select>
     <br />
 
-    <label for="imgUrl">Image URL:</label>
-    <input type="text" name="imgUrl" id="imgUrl" />
+    <label for="imgUrl">Image:</label>
+    <input type="file" name="imgUrl" id="imgUrl" accept="image/*" />
+    <br />
+    <label for="isEbook">is E-book:</label>
+    <input type="checkbox" name="isEbook" id="isEbook" />
+    <br />
+    <label for="ebookPath">E-book:</label>
+    <input type="file" name="ebookPath" id="ebookPath" />
     <br />
 
     <button type="submit">Add Book</button>

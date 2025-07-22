@@ -15,8 +15,7 @@ const userSchema = new mongoose.Schema(
       required: true
     },
     profilePicture: {
-      type: String, 
-      default: ''   
+      type: String
     }
   },
   {
@@ -24,6 +23,6 @@ const userSchema = new mongoose.Schema(
   }
 )
 
-const User = mongoose.model(('User'), userSchema)
+const User = mongoose.model('User', userSchema)
 
 module.exports = User
