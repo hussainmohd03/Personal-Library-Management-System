@@ -49,7 +49,7 @@ exports.books_search_post = async (req, res) => {
   queryStrings.forEach((element) => {
     allQueries.push({ title: { $regex: String(element) } })
   })
-  let books = await Book.find({ $or: allQueries })
+  let books = await Book.find({ $or: allQueries, owner: req.session.user._id })
   res.render('books/index.ejs', { books })
 }
 
