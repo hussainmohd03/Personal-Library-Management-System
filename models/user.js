@@ -14,9 +14,8 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    conftimPassword: {
-      type: String,
-      required: true
+    profilePicture: {
+      type: String
     }
   },
   {
@@ -24,6 +23,6 @@ const userSchema = new mongoose.Schema(
   }
 )
 
-const User = mongoose.model(('User'), userSchema)
+const User = mongoose.model('User', userSchema)
 
 module.exports = User

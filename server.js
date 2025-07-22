@@ -49,8 +49,8 @@ const authRouter = require('./routes/auth')
 const bookRouter = require('./routes/books')
 
 // use Routers
-app.use('/books', isAuthenticated, bookRouter)
 app.use('/auth', authRouter)
+app.use('/books', isAuthenticated, bookRouter)
 
 // Listener
 app.listen(port, () => {
