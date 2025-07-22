@@ -12,15 +12,19 @@ exports.books_create_post = async (req, res) => {
   }
   req.body.imgUrl = req.files.imgUrl[0].path
   req.body.imgUrl = req.body.imgUrl.replace('public', '')
+  req.body.owner = req.session.user._id
   await Book.create(req.body)
   res.redirect('/books')
 }
 exports.books_index_get = async (req, res) => {
-  const books = await Book.find()
+  const books = await Book.find({ owner: req.session.user._id })
   res.render('books/index.ejs', { books })
 }
 exports.books_show_get = async (req, res) => {
   const book = await Book.findById(req.params.bookId)
+  if (!book.owner._id.equals(req.session.user._id)) {
+    return res.redirect('/books')
+  }
   res.render('books/show.ejs', { book })
 }
 exports.books_edit_get = async (req, res) => {
