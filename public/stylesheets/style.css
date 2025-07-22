@@ -77,7 +77,8 @@ button {
 .borrow-book-form,
 .return-book-form,
 .signIn-form,
-.signUp-form {
+.signUp-form,
+.confirm-book-borrow {
   font-family: var(--general-font);
   max-width: 500px;
   max-height: 900px;
@@ -147,7 +148,9 @@ form button[type='submit']:hover,
 .add-new-btb button:hover {
   background-color: #2980b9;
 }
-
+.confirm-book-borrow p {
+  font-size: 2.5vmin;
+}
 /*  */
 .books-hero-h1 {
   font-family: var(--heading-font);
