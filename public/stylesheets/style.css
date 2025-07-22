@@ -285,3 +285,22 @@ form button[type='submit']:hover,
   align-self: center;
 }
 
+
+/* ---------------------------------------------------- Media Queries ---------------------------------------------------- */
+
+@media screen and (max-width: 600px) {
+  .show-book-section {
+    flex-direction: column;
+    margin-top: 15px;
+  }
+  .book-btns button {
+    text-align: center;
+    width: 13vmin;
+    height: 5vmin;
+    font-size: 2.5vmin;
+  }
+  .delete {
+    margin-right: 35px;
+  }
+}
+
