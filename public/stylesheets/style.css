@@ -238,3 +238,10 @@ form button[type='submit']:hover,
 #delete-btn {
   background-color: red;
 }
+
+.chart {
+  height: 700px;
+  width: 700px;
+  justify-self: center;
+  align-self: center;
+}
