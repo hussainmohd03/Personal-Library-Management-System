@@ -247,12 +247,44 @@ form button[type='submit']:hover,
   background-color: red;
 }
 
+
+.show-profile-section {
+  display: flex;
+  flex-direction: column;
+  background-color: #2980b9;
+  border-radius: 20px;
+  width: 40%;
+  height: 45%;
+  border: black solid 6px;
+}
+
+
+.show-History {
+  background-color: #2980b9;
+  width: 100%;
+  height: 45%;
+  border-radius: 20px;
+  display: flex;
+  border: black solid 6px;
+  
+}
+
+.show-Dashboard-section {
+  position: relative;
+  
+}
+
+.profile-page {
+  display: block
+}
+
 .chart {
   height: 700px;
   width: 700px;
   justify-self: center;
   align-self: center;
 }
+
 
 /* ---------------------------------------------------- Media Queries ---------------------------------------------------- */
 
@@ -271,3 +303,4 @@ form button[type='submit']:hover,
     margin-right: 35px;
   }
 }
+
