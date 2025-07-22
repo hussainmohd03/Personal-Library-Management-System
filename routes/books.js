@@ -6,6 +6,9 @@ const uploadBookImg = require('../middleware/Upload_Book_Img')
 //borrowed books
 router.get('/borrowed', bookCtrl.books_index_get_borrowed)
 
+//dashboard
+router.get('/dashboard', bookCtrl.books_index_get_dashboard)
+
 router.get('/new', bookCtrl.books_create_get)
 router.post('/new', uploadBookImg, bookCtrl.books_create_post)
 router.get('', bookCtrl.books_index_get)

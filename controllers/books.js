@@ -86,3 +86,45 @@ exports.books_index_get_borrowed = async (req, res) => {
   const books = await Book.find({ isBorrowed: true })
   res.render('books/borrowed.ejs', { books })
 }
+
+//dashboard
+exports.books_index_get_dashboard = async (req, res) => {
+  const book = await Book.find()
+  const genres = [
+    'Fiction',
+    'Non-Fiction',
+    'Science-Fiction',
+    'Fantasy',
+    'Mystery',
+    'Thriller',
+    'Romance',
+    'Historical',
+    'Biography',
+    'Self-Help',
+    'Philosophy',
+    'Poetry',
+    'Horror',
+    'Young-Adult',
+    'Children',
+    'Science',
+    'Technology',
+    'Religion',
+    'Art',
+    'Comics'
+  ]
+  const bookGenre = book.map((book) => book.genre)
+
+  //loop
+
+  const genreCounts = genres.map((genre) => {
+    let count = 0
+    for (let i = 0; i < book.length; i++) {
+      if (book[i].genre === genre) {
+        count++
+      }
+    }
+    return count
+  })
+
+  res.render('books/dashboard.ejs', { book, bookGenre, genreCounts })
+}

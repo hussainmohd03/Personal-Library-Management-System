@@ -1,0 +1,72 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Chart in Express App using CanvasJS</title>
+    <script src="canvasjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <%- include('../partials/_nav') %>
+    <div class="chart">
+      <canvas id="myChart"></canvas>
+    </div>
+    <script>
+      const data = {
+        labels: [
+          'Fiction',
+          'Non-Fiction',
+          'Science-Fiction',
+          'Fantasy',
+          'Mystery',
+          'Thriller',
+          'Romance',
+          'Historical',
+          'Biography',
+          'Self-Help',
+          'Philosophy',
+          'Poetry',
+          'Horror',
+          'Young-Adult',
+          'Children',
+          'Science',
+          'Technology',
+          'Religion',
+          'Art',
+          'Comics'
+        ],
+        datasets: [
+          {
+            label: 'Books by genre',
+            data: <%- JSON.stringify(genreCounts) %>,
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(75, 192, 192)',
+              'rgb(255, 205, 86)',
+              'rgb(201, 203, 207)',
+              'rgb(54, 162, 235)',
+              'rgb(153, 102, 255)',
+              'rgb(255, 159, 64)',
+              'rgb(0, 204, 102)',
+              'rgb(255, 51, 204)',
+              'rgb(102, 204, 255)',
+              'rgb(255, 102, 0)',
+              'rgb(0, 153, 204)',
+              'rgb(204, 51, 255)',
+              'rgb(102, 255, 51)',
+              'rgb(255, 255, 102)',
+              'rgb(51, 102, 255)',
+              'rgb(255, 102, 102)',
+              'rgb(102, 255, 255)',
+              'rgb(204, 153, 255)',
+              'rgb(255, 204, 153)'
+            ]
+          }
+        ]
+      }
+    </script>
+    <%- include('../partials/_dashboard') %>
+  </body>
+</html>
+
+<!-- add colors, edit style,  -->
