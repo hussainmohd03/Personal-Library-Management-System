@@ -47,9 +47,9 @@ exports.books_search_post = async (req, res) => {
   const queryStrings = queryString.split(' ')
   allQueries = []
   queryStrings.forEach((element) => {
-    allQueries.push({ title: { $regex: String(element) } })
+    allQueries.push({ title: { $regex: String(element), $options: 'i' } })
   })
-  let books = await Book.find({ $or: allQueries })
+  let books = await Book.find({ $or: allQueries, owner: req.session.user._id })
   res.render('books/index.ejs', { books })
 }
 
@@ -68,8 +68,10 @@ exports.books_borrow_put = async (req, res) => {
   book.isBorrowed = true
   book.borrowHistory.push(req.body)
   book.save()
+  let lastIndex = book.borrowHistory.length
+  let borrower = book.borrowHistory[lastIndex - 1]
 
-  res.redirect(`/books/${req.params.bookId}`)
+  res.render('books/confirm.ejs', { borrower })
 }
 
 //return
@@ -105,7 +107,9 @@ exports.books_index_get_borrowed = async (req, res) => {
 
 //dashboard
 exports.books_index_get_dashboard = async (req, res) => {
+
   const book = await Book.find({ owner: req.session.user._id })
+
   const genres = [
     'Fiction',
     'Non-Fiction',
@@ -128,10 +132,9 @@ exports.books_index_get_dashboard = async (req, res) => {
     'Art',
     'Comics'
   ]
-  const bookGenre = book.map((book) => book.genre)
+  // const bookGenre = book.map((book) => book.genre) creates an array of just genres
 
   //loop
-
   const genreCounts = genres.map((genre) => {
     let count = 0
     for (let i = 0; i < book.length; i++) {
@@ -142,5 +145,29 @@ exports.books_index_get_dashboard = async (req, res) => {
     return count
   })
 
-  res.render('books/dashboard.ejs', { book, bookGenre, genreCounts })
+  let popularGenre
+  let j = 0
+  for (let i = 0; i < genreCounts.length; i++) {
+    if (genreCounts[i] > j) {
+      j = genreCounts[i]
+      popularGenre = genres[i]
+    }
+  }
+
+  //fisher yates shuffle function:
+  let shuffle = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1))
+      ;[array[i], array[j]] = [array[j], array[i]]
+    }
+    return array
+  }
+
+  book = shuffle(book).slice(0, 2) //only print two books
+
+  res.render('books/dashboard.ejs', {
+    book,
+    genreCounts,
+    popularGenre
+  })
 }
