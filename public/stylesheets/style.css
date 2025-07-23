@@ -257,7 +257,6 @@ form button[type='submit']:hover,
   background-color: red;
 }
 
-/* break */
 
 #profile-body {
   margin: 0;
@@ -315,9 +314,6 @@ form button[type='submit']:hover,
   background-color: #004c99;
 }
 
-.profile-chart {
-  /* width: 100%; */
-}
 
 .profile-chart h3 {
   text-align: center;

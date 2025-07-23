@@ -1,137 +1,140 @@
-# Personal Library Management System
+# 📚 Personal Library Management System
 
-This project is a web-based application to help you **manage and track your personal book collection**. You can add books, search and browse your library, record borrowing activity, and even manage e-books. An admin interface is included for easy management.
+![Status](https://img.shields.io/badge/status-active-brightgreen)
+![Made With](https://img.shields.io/badge/Made%20with-Node.js-yellow)
 
---- 
-## 📚 Table of Contents
+> This project is a web-based application to help you **manage and track your personal book collection**. You can add books, search and browse your library, record borrowing activity, and even manage e-books.
 
-- [Overview](#personal-library-management-system)
+## 📑 Table of Contents
+
+- [Overview](#-overview)
 - [Technologies Used](#-technologies-used)
 - [Planning & Design](#-planning--design)
   - [Wireframes](#-wireframes)
-  - [ERD (Entity Relationship Diagram)](#erd-entity-relationship-diagram)
+  - [ERD (Entity Relationship Diagram)](#-erd-entity-relationship-diagram)
 - [Getting Started](#-getting-started)
-- [Features](#features)
-- [Usage](#usage)
-- [User Stories](#user-stories)
-  - [Book Management](#book-management)
-  - [Borrow & Return Tracking](#borrow--return-tracking)
-  - [E-Book Support](#e-book-support)
-  - [User Authentication](#user-authentication)
-  - [Admin Panel](#admin-panel)
-  - [Home & Navigation](#home--navigation)
-- [Screenshots](#screenshots)
-- [Future Updates](#future-updates)
-- [Credits](#credits)
+- [Features](#-features)
+- [Usage](#-usage)
+- [User Stories](#-user-stories)
+- [Screenshots](#-screenshots)
+- [Future Updates](#-future-updates)
+- [Credits](#-credits)
 
----
+## 📖 Overview
 
-### 🔧 **_Technologies Used_**
+The Personal Library Management System enables users to:
 
-- HTML
-- CSS
-- JavaScript
-- NodeJS + ExpressJS
+- 📘 Add and manage books (physical + digital)
+- 🔍 Search and filter their library
+- 🔁 Track borrowing and return records
+- 🛠 Access admin dashboard for control
+- 🔐 Use user authentication for security
 
----
+## 🛠 Technologies Used
 
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Node.js, Express.js
+- **Templating:** EJS
+- **Database:** MongoDB
 
-## 📐 Planning & Design
+## 🧠 Planning & Design
 
 ### 🖼 Wireframes
 
-[wireframes]()
+[📎 View wireframes](#) _(link to PDF or Figma)_
 
-### ERD (Entity Relationship Diagram)
+### 🗂 ERD (Entity Relationship Diagram)
 
-[ERD]()
+[📎 View ERD](#) _(link to image or diagram tool)_
 
----
+## 🚀 Getting Started
 
-### 🚀 **_Getting Started_**
+### 🧰 Prerequisites
 
+- Node.js v18+
+- npm or yarn
+- MongoDB (local or Atlas)
+- Git
 
+### 📦 Installation
 
---- 
-## Features
+```bash
+git clone https://github.com/yourusername/personal-library-app.git
+cd personal-library-app
+npm install
+```
 
-- **Personal Book Tracking:** Add, edit, and view your books.
-- **Borrow & Return:** Track which books are borrowed and returned.
-- **E-Book Support:** Download e-books stored in your collection.
-- **Search & Browse:** Quickly find books by title or author.
-- **User Authentication:** Register and log in to keep your data secure.
-- **Admin Panel:** Manage your collection and borrowing records with a user-friendly interface.
+### 📦 Setup Environment
 
-## Usage
+```
+PORT=3010
+MONGO_URI= <mongodb connection string>
+SESSION_SECRET=<add your session secret>
+```
 
-- **Home:** See recommended books from your collection.
-- **Books:** Browse or search your entire library by author or by book name .
-- **Book Details:** View details, mark as borrowed/returned, or download e-books.
-- **Register/Login:** Secure your library with user authentication.
-- **Return:** Mark books as returned.
-- **Admin Panel:** Manage your collection and borrowing records.
+## ✅ Features
 
----
+- 🔖 **Book Management:** Add, edit, and view your books
+- 🔁 **Borrow & Return:** Track borrowed/returned status
+- 📥 **E-Book Support:** Upload and download PDF books
+- 🔍 **Search:**Filter by title
+- 🔐 **User Authentication:** Register and log in
+- 🛠 **Dashboard:** See how many books you have in each genre.
 
-## User Stories
+## 👤 User Stories
 
-### Book Management
+### 📘 Book Management
 
-1. **As a user**, I want to **add books to my personal collection** so that **I can keep track of all the books I own**.
+- As a user, I want to add books to my personal collection so that I can keep track of all the books I own.
 
-2. **As a user**, I want to **edit book details** so that **I can correct or update information like title, author, or genre**.
+- As a user, I want to edit book details so that I can correct or update information like title, author, or genre.
 
-3. **As a user**, I want to **view a list of all my books** so that **I can browse through my collection easily**.
+- As a user, I want to view a list of all my books so that I can browse through my collection easily.
 
-4. **As a user**, I want to **search for books by title or author** so that **I can quickly find a specific book in my library**.
+- As a user, I want to delete books so that I can correct errors or remove outdated information.
 
-### Borrow & Return Tracking
+### 🔄 Borrow & Return Tracking
 
-5. **As a user**, I want to **mark a book as borrowed** so that **I can track which books are currently lent out**.
+- As a user, I want to mark a book as borrowed so that I can track which books are currently lent out.
 
-6. **As a user**, I want to **see who borrowed a book and when** so that **I know when to expect it back**.
+- As a user, I want to see who borrowed a book and when so that I know when to expect it back.
 
-7. **As a user**, I want to **mark a book as returned** so that **my collection stays up-to-date**.
+- As a user, I want to mark a book as returned so that my collection stays up-to-date.
 
-### E-Book Support
+### 🔄 Borrow & Return Tracking
 
-8. **As a user**, I want to **upload e-books to my collection** so that **I can store and organize digital books**.
+- As a user, I want to mark a book as borrowed so that I can track which books are currently lent out.
 
-9. **As a user**, I want to **download e-books from my library** so that **I can read them on my devices**.
+- As a user, I want to see who borrowed a book and when so that I know when to expect it back.
 
-### User Authentication
+- As a user, I want to mark a book as returned so that my collection stays up-to-date.
 
-10. **As a new user**, I want to **register for an account** so that **I can have a private, secure personal library**.
+### 📥 E-Book Support
 
-11. **As a returning user**, I want to **log in with my credentials** so that **I can access my library securely**.
+- As a user, I want to upload e-books to my collection so that I can store and organize digital books.
 
-### Admin Panel
+- As a user, I want to download e-books from my library so that I can read them on my devices.
 
-12. **As an admin**, I want to **view and manage all books and borrow records** so that **I can maintain the integrity of the system**.
+### 🔐 User Authentication
 
-13. **As an admin**, I want to **edit or delete book entries or borrowing records** so that **I can correct errors or remove outdated information**.
+- As a new user, I want to register for an account so that I can have a private, secure personal library.
 
+- As a returning user, I want to log in with my credentials so that I can access my library securely.
 
-### Home & Navigation
+## 🖼 Screenshots
 
-14. **As a user**, I want to **see featured or recommended books** so that **I can quickly discover interesting reads from my own collection**.
+![Home Page](assets/screenshots/home.png)
+![Books](assets/screenshots/books.png)
+![Book Details](assets/screenshots/book-details.png)
+![Dashboard](assets/screenshots/dashboard.png)
+![Profile](assets/screenshots/profile.png)
 
-15. **As a user**, I want to **navigate easily between pages like Home, Books, Borrowed, and Admin Panel** so that **I can manage my library efficiently**.
+## 🚧 Future Updates
 
+- [] 📊 User reading stats
 
-### **_Screenshots_**
+- [] 📂 Book category filters
 
+- [] 🧾 Export books to PDF/CSV
 
-
-
-
----
-
-### **_Future Updates_**
-
----
-
-### **_Credits_**
-
-
-
+- [] ⏰ Borrowing due date reminders
