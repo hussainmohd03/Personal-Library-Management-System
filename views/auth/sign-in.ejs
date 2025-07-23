@@ -2,6 +2,9 @@
 
 <section class="signIn-form">
   <h1>Login to your user</h1>
+  <% if(typeof errMsg !== 'undefined') {%>
+  <h2 id="errMsg"><%=errMsg%></h2>
+  <% }%>
   <form action="/auth/sign-in" method="post">
     <label for="username">Username</label>
     <input type="text" name="username" required />
