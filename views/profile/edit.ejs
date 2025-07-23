@@ -1,24 +1,42 @@
 <head>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
-  
-  <%- include('../partials/_nav') %>
-  
-  <section class="profileInfo">
-  
-    <form action="/books/<%= book._id  %>?_method=PUT" method="POST"> 
-        
-        <label for="username">Username</label>
-        <input type="text" name="username" value="<%= profile.username %>">
-        <br>
-        
-        <label for="email">Email</label>
-        <input type="text" name="email" value="<%= profile.email %>">
-        <br>
-        
-    </form>
-    
-</section>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
 
+<%- include('../partials/_nav') %>
+
+<section class="profileInfo">
+  <form action="/profile?_method=PUT" method="POST">
+    <label for="username">Username</label>
+    <input type="text" name="username" value="<%= profile.username %>" />
+    <br />
+
+    <label for="email">Email</label>
+    <input type="text" name="email" value="<%= profile.email %>" />
+    <br />
+
+    <input
+      type="password"
+      name="oldPassword"
+      placeholder="Old Password"
+      required
+    />
+    <br />
+    <input
+      type="password"
+      name="newPassword"
+      placeholder="New Password"
+      required
+    />
+    <br />
+    <input
+      type="password"
+      name="confirmPassword"
+      placeholder="Confirm New Password"
+      required
+    />
+    <br />
+    <button type="submit">Update</button>
+  </form>
+</section>
 
 <!-- <form action="/profile" method="get"> -->
