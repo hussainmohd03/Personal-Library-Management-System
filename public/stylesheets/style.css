@@ -286,9 +286,13 @@ body {
 .section-right{
   width: 140%;
 }
+.section-right p {
+  font-size: 20px;
+}
 
-.section-left{
-
+.section-left p{ 
+  font-size: 22px;
+  color: whitesmoke;
 }
 
 .picture {
@@ -301,23 +305,13 @@ body {
 .edit-button {
   background-color: #ffc107;
   border: black solid 3px;
-  width: 100px;
+  width: 120px;
+  height: 50px;
   outline: none;
   box-shadow: none;
+  font-size: larger;
 }
 
-/* .show-History {
-  background-color: #2980b9;
-  width: 100%;
-  height: 80%;
-  position: relative;
-  top: 10px;
-  border-radius: 20px;
-  display: flex;
-
-  border: #ffc107 solid 6px;
-  justify-content: center;
-} */
 
 .section-left p {
   background-color: rgb(53, 155, 188);
