@@ -50,6 +50,14 @@
     <input type="file" name="imgUrl" id="imgUrl" />
     <br />
 
+    <% if (book.isEbook) { %>
+      <label for="isEbook">is E-book:</label>
+    <input type="checkbox" name="isEbook" id="isEbook" checked/>
+    <br />
+    <label for="ebookPath">E-book:</label>
+    <input type="file" name="ebookPath" id="ebookPath" />
+    <br />
+  <% } %>
     <button type="submit">Save</button>
   </form>
 </section> 
