@@ -1,3 +1,4 @@
+<%- include('../partials/_nav') %>
 
 <section class="edit-book-form">
   <h1>Edit Book</h1>
@@ -46,7 +47,7 @@
     <br />
 
     <label for="imgUrl">Image URL:</label>
-    <input type="text" name="imgUrl" id="imgUrl" value="<%= book.imgUrl %>"/>
+    <input type="file" name="imgUrl" id="imgUrl" />
     <br />
 
     <button type="submit">Save</button>
