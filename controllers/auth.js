@@ -23,9 +23,8 @@ exports.auth_signup_post = async (req, res) => {
   req.body.password = hashedPassword
 
   const user = await User.create(req.body)
-  res.send(`Your username is ${user.username}, Thank you for signing up`)
+  res.render('./auth/thanks.ejs')
 }
-
 
 exports.auth_signin_get = async (req, res) => {
   res.render('auth/sign-in.ejs')
