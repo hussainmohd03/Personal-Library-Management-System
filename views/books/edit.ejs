@@ -46,10 +46,10 @@
     </select>
     <br />
 
-    <label for="imgUrl">Image URL:</label>
-    <input type="file" name="imgUrl" id="imgUrl" />
+    <label for="imgUrl">Book Cover: <%= book.imgUrl.replace('\\uploads\\','') %></label>
+    <input type="file" name="imgUrl" id="imgUrl" value="<%= book.imgUrl %>" placeholder="<%= book.imgUrl %>" />
     <br />
-
+    
     <% if (book.isEbook) { %>
       <label for="isEbook">is E-book:</label>
     <input type="checkbox" name="isEbook" id="isEbook" checked/>
@@ -61,3 +61,4 @@
     <button type="submit">Save</button>
   </form>
 </section> 
+
