@@ -25,7 +25,12 @@ exports.books_show_get = async (req, res) => {
   if (!book.owner._id.equals(req.session.user._id)) {
     return res.redirect('/books')
   }
-  res.render('books/show.ejs', { book })
+  let borrower = ''
+  if (book.borrowHistory.length > 0) {
+    let lastIndex = book.borrowHistory.length
+    borrower = book.borrowHistory[lastIndex - 1].borrowerName
+  }
+  res.render('books/show.ejs', { book, borrower })
 }
 exports.books_edit_get = async (req, res) => {
   const book = await Book.findById(req.params.bookId)

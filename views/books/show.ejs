@@ -16,11 +16,15 @@
 
   <div class="book-info">
     <h1 id="book-title"><%= book.title %></h1>
-    <p id="book-author">by <%= book.author %></p>
-    <p id="book-author">lang: <%= book.language %></p>
+    <p id="book-author">By: <%= book.author %></p>
+    <p id="book-author">Language: <%= book.language %></p>
     <p id="book-author">Genre: <%= book.genre %></p>
+    <% if (book.isBorrowed){ %>
+    <p id="book-author">Borrowed by: <%=borrower%></p>
+    <% } %>
 
-    <p id="book-desc"><%= book.description %></p>
+
+    <p id="book-desc">Discription: <br><%= book.description %></p>
     <div class="book-btns">
       <a href="/books/<%= book._id %>/edit" class="edit-btn"><button>Edit Book</button></a>
       <% if (!book.isEbook) { %>
