@@ -4,7 +4,8 @@
 
 <%- include('../partials/_nav') %>
 
-<section class="profileInfo">
+<section class="profileInfo-edit">
+  <h1>Edit Profile</h1>
   <form action="/profile?_method=PUT" method="POST">
     <label for="username">Username</label>
     <input type="text" name="username" value="<%= profile.username %>" />
@@ -14,25 +15,14 @@
     <input type="text" name="email" value="<%= profile.email %>" />
     <br />
 
-    <input
-      type="password"
-      name="oldPassword"
-      placeholder="Old Password"
-      required
-    />
+    <input type="password" name="oldPassword" placeholder="Old Password" />
     <br />
-    <input
-      type="password"
-      name="newPassword"
-      placeholder="New Password"
-      required
-    />
+    <input type="password" name="newPassword" placeholder="New Password" />
     <br />
     <input
       type="password"
       name="confirmPassword"
       placeholder="Confirm New Password"
-      required
     />
     <br />
     <button type="submit">Update</button>

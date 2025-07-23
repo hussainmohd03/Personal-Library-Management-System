@@ -25,8 +25,8 @@ exports.auth_signup_post = async (req, res) => {
 
   if (req.file) {
     req.body.profilePicture = req.file.path
+    req.body.profilePicture = req.body.profilePicture.replace('public', '')
   }
-  req.body.profilePicture = req.body.profilePicture.replace('public', '')
   const hashedPassword = bcrypt.hashSync(req.body.password, 10)
   req.body.password = hashedPassword
 
