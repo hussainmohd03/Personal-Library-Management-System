@@ -259,7 +259,7 @@ body {
 }
 
 /* Container that holds the two sections side by side */
-.container {
+.container2 {
   display: flex;
   justify-content: center; /* Center the two sections horizontally */
   gap: 10px; /* Space between left and right sections */
@@ -387,17 +387,15 @@ body {
   margin-top: 30px;
   margin-bottom: 30px;
 }
-
 #errMsg {
   font-size: 15px;
   justify-self: center;
   color: red;
 }
-
 /* ---------------------------------------------------- Media Queries ---------------------------------------------------- */
 @media (min-width: 1400px) {
-  .container {
-    max-width: 100%;
+  .container2 {
+        max-width: 100%;
   }
 }
 
