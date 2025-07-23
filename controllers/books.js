@@ -170,6 +170,7 @@ exports.books_index_get_dashboard = async (req, res) => {
   res.render('books/dashboard.ejs', {
     book: shBooks,
     genreCounts,
-    popularGenre
+    popularGenre,
+    genres
   })
 }
