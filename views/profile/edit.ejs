@@ -6,7 +6,7 @@
   
   <section class="profileInfo">
   
-    <form action="/books/<%= book._id  %>?_method=PUT" method="POST"> 
+    <form action="/profile?_method=PUT" method="POST"> 
         
         <label for="username">Username</label>
         <input type="text" name="username" value="<%= profile.username %>">
@@ -16,6 +16,20 @@
         <input type="text" name="email" value="<%= profile.email %>">
         <br>
         
+        <label for="old-password">Old password</label>
+        <input type="password" id="old-password" name="old-password" />
+        
+
+        <label for="new password">New password</label>
+        <input type="password" name="new password" >
+        <br>
+
+        <label for="confirm password">Confirm password</label>
+        <input type="password" name="confirm password">
+        <br>
+
+
+        <button type="submit">Confirm</button>
     </form>
     
 </section>

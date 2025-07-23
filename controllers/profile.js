@@ -7,12 +7,12 @@ exports.profile_show_get = async (req, res) => {
 };
 
 exports.profile_edit_get = async (req, res) => {
-  const profile = await Profile.findById(req.body.username);
+  const profile = await User.findById(req.session.user._id);
   res.render("profile/edit.ejs", { profile });
 };
 exports.profile_edit_put = async (req, res) => {
-  const profile = await Profile.findByIdAndUpdate(req.params._id, req.body);
-  res.redirect(`/auth/${req.params._id}/${profile}`);
+  const profile = await User.findByIdAndUpdate(req.session.user._id, req.body);
+  res.redirect(`/profile`);
 };
 
 
