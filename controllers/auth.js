@@ -9,8 +9,13 @@ exports.auth_signup_get = async (req, res) => {
 exports.auth_signup_post = async (req, res) => {
   let errMsg = ''
   const userFinder = await User.findOne({ username: req.body.username })
+  const emailFinder = await User.findOne({ email: req.body.email })
   if (userFinder) {
     errMsg = 'The username was already taken!'
+    return res.render('auth/sign-up.ejs', { errMsg })
+  }
+  if (emailFinder) {
+    errMsg = 'The email was already taken!'
     return res.render('auth/sign-up.ejs', { errMsg })
   }
   if (req.body.password !== req.body.confirmPassword) {
@@ -26,7 +31,7 @@ exports.auth_signup_post = async (req, res) => {
   req.body.password = hashedPassword
 
   const user = await User.create(req.body)
-  res.render('./auth/.ejs')
+  res.render('auth/thanks.ejs')
 }
 
 exports.auth_signin_get = async (req, res) => {
