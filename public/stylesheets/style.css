@@ -304,6 +304,13 @@ form button[type='submit']:hover,
 }
 
 
+#popularGenres {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
 /* ---------------------------------------------------- Media Queries ---------------------------------------------------- */
 
 @media screen and (max-width: 600px) {
@@ -321,4 +328,5 @@ form button[type='submit']:hover,
     margin-right: 35px;
   }
 }
+
 
