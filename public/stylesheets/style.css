@@ -254,31 +254,42 @@ form button[type='submit']:hover,
 
 /* break */
 
-
-
-.show-profile-section {
-  display: flex;
-  flex-direction: column;
-  background-color: #2980b9;
-  border-radius: 20px;
-  width: 40%;
-  height: 45%;
-  border: black solid 6px;
-  align-items: center;
-  
+body {
+  margin: 0;
+  padding: 0;
 }
+
+/* Container that holds the two sections side by side */
+.container {
+  display: flex;
+  justify-content: center;     /* Center the two sections horizontally */
+  gap: 10px;                   /* Space between left and right sections */
+}
+
+/* Each individual section */
+.section-left,
+.section-right {
+  width: 1200px;
+  background-color: #2980b9;
+  border: #ffc107 solid 6px;
+  border-radius: 20px;
+  padding: 70px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+
 .picture{
   width: 30%;
-  height: 33%;
+  height: 45%;
+  border-radius: 50%;
+  border: white solid 4px;
 }
 
 
 .edit-button {
-
-
   background-color: #7f8c8d;
   border: black solid 3px;
-
   
 
 }
@@ -287,19 +298,20 @@ form button[type='submit']:hover,
 .show-History {
   background-color: #2980b9;
   width: 100%;
-  height: 45%;
+  height: 80%;
+  position: relative;
+  top: 10px;
   border-radius: 20px;
   display: flex;
-  border: black solid 6px;
+
+  border: #ffc107 solid 6px;
+  justify-content: center;
 }
 
-.show-Dashboard-section {
-  position: relative;
+.section-left p{
+  background-color: #ccc;
 }
 
-.profile-page {
-  display: block;
-}
 
 
 
@@ -387,6 +399,12 @@ form button[type='submit']:hover,
 
 
 /* ---------------------------------------------------- Media Queries ---------------------------------------------------- */
+@media (min-width: 1400px) {
+.container
+{
+      max-width: 100%;
+  }
+}
 
 @media (max-width: 640px) {
   .show-book-section {
