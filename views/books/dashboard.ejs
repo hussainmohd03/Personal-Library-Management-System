@@ -17,7 +17,7 @@
     </h3>
 
     <section class="all-books">
-      <% book.forEach(book => { if(book.genre === popularGenre){ %>
+      <% book.forEach(book => {  %>
 
       <article class="book-card">
         <a href="/books/<%= book._id %>">
@@ -31,7 +31,7 @@
           <p class="description"><%= book.description %></p>
         </div>
       </article>
-      <%} }); %>
+      <%}); %>
     </section>
 
     <script>
