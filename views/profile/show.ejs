@@ -1,6 +1,12 @@
 <%- include("../partials/_nav") %>
   <link rel="stylesheet" href="style.css">
-
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <script src="canvasjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
   <body>
     <div class="profile-page">
       <div class="container2">
@@ -18,7 +24,7 @@
         </section>
         </div>
         <div class="section-right">
-          <h2>Dashboard</h2>
+          <canvas id="myChart"></canvas>
         </div>
       </div>
 
@@ -27,7 +33,52 @@
     </div>
 
 
+<script>
+          const data = {
+            labels: <%- JSON.stringify(genres) %>,
+            datasets: [
+              {
+                label: 'Books by genre',
+                data: <%- JSON.stringify(genreCounts) %>,
+                backgroundColor: [
+                  'rgb(255, 99, 132)',
+                  'rgb(75, 192, 192)',
+                  'rgb(255, 205, 86)',
+                  'rgb(201, 203, 207)',
+                  'rgb(54, 162, 235)',
+                  'rgb(153, 102, 255)',
+                  'rgb(255, 159, 64)',
+                  'rgb(0, 204, 102)',
+                  'rgb(255, 51, 204)',
+                  'rgb(102, 204, 255)',
+                  'rgb(255, 102, 0)',
+                  'rgb(0, 153, 204)',
+                  'rgb(204, 51, 255)',
+                  'rgb(102, 255, 51)',
+                  'rgb(255, 255, 102)',
+                  'rgb(51, 102, 255)',
+                  'rgb(255, 102, 102)',
+                  'rgb(102, 255, 255)',
+                  'rgb(204, 153, 255)',
+                  'rgb(255, 204, 153)'
+                ]
+              }
+            ]
+          }
+          const ctx = document.getElementById('myChart').getContext('2d')
 
+      new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: {
+          title: {
+            display: true,
+            text: 'Number of Borrowed Books'
+          }
+          
+        }
+      })
+    </script>
 
 
 

@@ -1,9 +1,43 @@
 const User = require('./../models/user')
+const Book = require('../models/book')
 const bcrypt = require('bcrypt')
 
 exports.profile_show_get = async (req, res) => {
   const user = await User.findById(req.session.user._id)
-  res.render('profile/show.ejs', { user })
+  let book = await Book.find({ owner: req.session.user._id })
+  const genres = [
+    'Fiction',
+    'Non-Fiction',
+    'Science-Fiction',
+    'Fantasy',
+    'Mystery',
+    'Thriller',
+    'Romance',
+    'Historical',
+    'Biography',
+    'Self-Help',
+    'Philosophy',
+    'Poetry',
+    'Horror',
+    'Young-Adult',
+    'Children',
+    'Science',
+    'Technology',
+    'Religion',
+    'Art',
+    'Comics'
+  ]
+  const genreCounts = genres.map((genre) => {
+    let count = 0
+    for (let i = 0; i < book.length; i++) {
+      if (book[i].genre === genre && book[i].borrowHistory.length > 0) {
+        count++
+      }
+    }
+    return count
+  })
+
+  res.render('profile/show.ejs', { user, book, genres, genreCounts })
 }
 
 exports.profile_edit_get = async (req, res) => {
