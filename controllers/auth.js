@@ -7,12 +7,15 @@ exports.auth_signup_get = async (req, res) => {
   res.render('auth/sign-up.ejs')
 }
 exports.auth_signup_post = async (req, res) => {
+  let errMsg = ''
   const userFinder = await User.findOne({ username: req.body.username })
   if (userFinder) {
-    return res.send('The username was taken!! please type another')
+    errMsg = 'The username was already taken!'
+    return res.render('auth/sign-up.ejs', { errMsg })
   }
   if (req.body.password !== req.body.confirmPassword) {
-    return res.send('The password and confirm password must be the same')
+    errMsg = 'The password and confirm password must be the same!'
+    return res.render('auth/sign-up.ejs', { errMsg })
   }
 
   if (req.file) {
@@ -23,20 +26,23 @@ exports.auth_signup_post = async (req, res) => {
   req.body.password = hashedPassword
 
   const user = await User.create(req.body)
-  res.render('./auth/thanks.ejs')
+  res.render('./auth/.ejs')
 }
 
 exports.auth_signin_get = async (req, res) => {
   res.render('auth/sign-in.ejs')
 }
 exports.auth_signin_post = async (req, res) => {
+  let errMsg = ''
   const userFinder = await User.findOne({ username: req.body.username })
   if (!userFinder) {
-    return res.send('Login Failed, Try Again!')
+    errMsg = 'Login Failed, Try Again!'
+    return res.render('auth/sign-in.ejs', { errMsg })
   }
   // userFinder.password
   if (!bcrypt.compareSync(req.body.password, userFinder.password)) {
-    return res.send('Login Failed, Try Again!')
+    errMsg = 'Login Failed, Try Again!'
+    return res.render('auth/sign-in.ejs', { errMsg })
   }
 
   req.session.user = {
