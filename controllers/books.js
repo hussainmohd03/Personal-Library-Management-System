@@ -47,7 +47,7 @@ exports.books_search_post = async (req, res) => {
   const queryStrings = queryString.split(' ')
   allQueries = []
   queryStrings.forEach((element) => {
-    allQueries.push({ title: { $regex: String(element) } })
+    allQueries.push({ title: { $regex: String(element), $options: 'i' } })
   })
   let books = await Book.find({ $or: allQueries, owner: req.session.user._id })
   res.render('books/index.ejs', { books })
