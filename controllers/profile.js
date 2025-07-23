@@ -46,15 +46,18 @@ exports.profile_edit_get = async (req, res) => {
 }
 
 exports.profile_edit_put = async (req, res) => {
+  let errMsg = ''
   const user = await User.findById(req.session.user._id)
   const profile = await User.findByIdAndUpdate(req.params._id, req.body)
 
   const validPassword = bcrypt.compareSync(req.body.oldPassword, user.password)
   if (!validPassword) {
-    return res.send('Your old password was not correct! Please try again.')
+    errMsg = 'Your password is incorrect!'
+    return res.render('profile/edit.ejs', { errMsg, profile: user })
   }
   if (req.body.newPassword !== req.body.confirmPassword) {
-    return res.send('Password and Confirm Password must match')
+    errMsg = 'Password and confirm password must match'
+    return res.render('profile/edit.ejs', { errMsg, profile: user })
   }
   const hashedPassword = bcrypt.hashSync(req.body.newPassword, 12)
   user.password = hashedPassword

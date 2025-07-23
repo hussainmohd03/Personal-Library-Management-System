@@ -17,8 +17,12 @@ button {
   --card-desc: #555;
   --card-author: #7f8c8d;
   --card-title: #2c3e50;
+  --body-color: #f4f7fa;
 }
 
+body {
+  background-color: var(--body-color);
+}
 /*  */
 /* Book Card */
 .all-books {
@@ -255,68 +259,69 @@ form button[type='submit']:hover,
 
 /* break */
 
-body {
+#profile-body {
   margin: 0;
-  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
 
-/* Container that holds the two sections side by side */
-.container2 {
+.profile-page {
+  padding: 2rem;
+}
+
+.profile-container {
   display: flex;
-  justify-content: center; /* Center the two sections horizontally */
-  gap: 31px;/* Space between left and right sections */
-  height: 100%;
-  margin: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 650px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Each individual section */
-.section-left,
-.section-right {
-  display: inline;
-  width: 1200px;
-  background-color: #e1d99f;
-  border: #212529  solid 6px;
-  border-radius: 20px;
-  padding: 70px;
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  border-radius: 8px;
-  box-shadow: 20px 20px rgb(53, 155, 188);
-  margin: 50px;
-  font-family: var(--general-font);
 }
 
-.section-right{
-  width: 140%;
-}
-.section-right p {
-  font-size: 20px;
-}
-
-.section-left p{ 
-  font-size: 22px;
-  color: whitesmoke;
-}
-
-.picture {
-  width: 200px;
-  height: 200px;
+.profile-picture {
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  border: rgb(33 37 41) solid 4px;
+  object-fit: cover;
+  border: 4px solid #ddd;
+  margin-bottom: 1rem;
 }
 
 .edit-button {
-  background-color: #ffc107;
-  border: black solid 3px;
-  width: 120px;
-  height: 50px;
-  outline: none;
-  box-shadow: none;
-  font-size: larger;
+  margin-top: 1rem;
+  background-color: #0066cc;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
+.edit-button:hover {
+  background-color: #004c99;
+}
 
-.section-left p {
-  background-color: rgb(53, 155, 188);
+.profile-chart {
+  /* width: 100%; */
+}
+
+.profile-chart h3 {
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .chart {
@@ -413,6 +418,19 @@ body {
 }
 
 @media (max-width: 640px) {
+  .profile-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-info {
+    width: 35%;
+  }
+
+  .profile-chart {
+    width: 60%;
+  }
   .show-book-section {
     flex-direction: column;
     margin-top: 15px;

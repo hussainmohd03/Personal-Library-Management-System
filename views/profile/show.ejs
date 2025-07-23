@@ -1,94 +1,33 @@
-<!-- Because of the script part this page displays an error on VsCode, You have to change the language mode at the bottom from HTML to EJS -->
 <%- include("../partials/_nav") %>
-  <link rel="stylesheet" href="style.css">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <script src="canvasjs.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  </head>
-  <body>
-    <div class="profile-page">
-      <div class="container2">
-        <div class="section-left">
-          <h1>Profile Info</h1>
-          <br>
-          <br>
-          <img src="<%= user.profilePicture %>" alt="Profile Picture" class="picture" />
-          <br>
-          <br>
-          <p>Your username: <%= user.username %>
-          </p>
-          <p>Your email: <%= user.email %>
-          </p>
-          <br>
-          <a href="profile/edit">
-          <button type="button" class="edit-button">Edit profile
-          </button> </a>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Profile</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
 
-        </section>
-        </div>
-        <div class="section-right">
-          <h1>bar chart</h1>
-          <p>The chart below shows the most and least popular book types,
-            with the x-axis representing the types and the y-axis representing
-              the percentage of the types.</p>
-              <br>
-          <canvas id="myChart"></canvas>
-        </div>
+<body id="profile-body">
+  <div class="profile-page">
+    <div class="profile-container">
+      <h1>Profile</h1>
+      <!-- Left Column -->
+      <div class="profile-info">
+        <img
+          src="<%= user.profilePicture %>"
+          alt="Profile Picture"
+          class="profile-picture"
+        />
+        <h2><%= user.username %></h2>
+        <p><strong>Email:</strong> <%= user.email %></p>
+        <a href="/profile/edit">
+          <button class="edit-button">Edit Profile</button>
+        </a>
       </div>
 
+      <!-- Right Column -->
+      <div class="profile-chart">
+        <canvas id="myChart"></canvas>
+      </div>
     </div>
-
-
-<script>
-          const data = {
-            labels: <%- JSON.stringify(genres) %>,
-            datasets: [
-              {
-                label: 'Books by genre',
-                data: <%- JSON.stringify(genreCounts) %>,
-                backgroundColor: [
-                  'rgb(255, 99, 132)',
-                  'rgb(75, 192, 192)',
-                  'rgb(255, 205, 86)',
-                  'rgb(201, 203, 207)',
-                  'rgb(54, 162, 235)',
-                  'rgb(153, 102, 255)',
-                  'rgb(255, 159, 64)',
-                  'rgb(0, 204, 102)',
-                  'rgb(255, 51, 204)',
-                  'rgb(102, 204, 255)',
-                  'rgb(255, 102, 0)',
-                  'rgb(0, 153, 204)',
-                  'rgb(204, 51, 255)',
-                  'rgb(102, 255, 51)',
-                  'rgb(255, 255, 102)',
-                  'rgb(51, 102, 255)',
-                  'rgb(255, 102, 102)',
-                  'rgb(102, 255, 255)',
-                  'rgb(204, 153, 255)',
-                  'rgb(255, 204, 153)'
-                ]
-              }
-            ]
-          }
-          const ctx = document.getElementById('myChart').getContext('2d')
-
-      new Chart(ctx, {
-        type: 'bar',
-        data: data,
-        options: {
-          title: {
-            display: true,
-            text: 'Number of Borrowed Books'
-          }
-          
-        }
-      })
-    </script>
-
-
-
-  </body>
+  </div>
+</body>

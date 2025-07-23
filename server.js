@@ -36,10 +36,8 @@ app.use(
   })
 )
 
-
 //passUserToView middleware
 app.use(passUserToView)
-
 
 // Root Route
 app.get('/', (req, res) => {
@@ -51,15 +49,11 @@ const authRouter = require('./routes/auth')
 const bookRouter = require('./routes/books')
 const profileRouter = require('./routes/profile')
 
-
 // use Routers
 app.use('/auth', authRouter)
-app.use('/profile', profileRouter)
+app.use('/profile', isAuthenticated, profileRouter)
 app.use('/books', isAuthenticated, bookRouter)
 // use isAuthenticated middleware
-
-
-
 
 // Listener
 app.listen(port, () => {
