@@ -169,5 +169,5 @@ exports.books_index_get_dashboard = async (req, res) => {
     book,
     genreCounts,
     popularGenre
-  })
+  }, )
 }

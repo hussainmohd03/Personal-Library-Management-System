@@ -16,20 +16,113 @@
 
         </section>
         </div>
-        <div class="section-right">
-            <h2>Dashboard</h2>
-            <!-- <form action="/views/books/dashboard.ejs"></form> -->
-
-        </div>
+        <!-- <div class="section-right">
+            <h2>Dashboard</h2> 
+            <div class="myChart" >
+            <canvas id="myChart"></canvas>
+          </div>
+        </div> -->
       </div>
 
-      <section class="show-History"><h2>History</h2></section>
+      <section class="show-History"><h2>History</h2>
+        
+          
+      </section>
 
     </div>
 
+    <script>
+      const labels = Utils.months({count: 7});
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'My First Dataset',
+    data: [65, 59, 80, 81, 56, 55, 40],
+    backgroundColor: [
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 205, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(201, 203, 207, 0.2)'
+    ],
+    borderColor: [
+      'rgb(255, 99, 132)',
+      'rgb(255, 159, 64)',
+      'rgb(255, 205, 86)',
+      'rgb(75, 192, 192)',
+      'rgb(54, 162, 235)',
+      'rgb(153, 102, 255)',
+      'rgb(201, 203, 207)'
+    ],
+    borderWidth: 1
+  }]
+};
+          const ctx = document.getElementById('myChart').getContext('2d')
 
+const config = {
+  type: 'bar',
+  data: data,
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  },
+};
+</script>
 
-
-
-
+<!-- <div id="subjectsPage">
+  <h3>Arts</h3>
+  <ul>
+      <li> <a href="/subjects/architecture">Architecture</a></li>
+      <li> <a href="/subjects/art__art_instruction">Art Instruction</a> </li>
+      <li> <a href="/subjects/history_of_art__art__design_styles">Art History</a> </li>
+      <li> <a href="/subjects/dance">Dance</a> </li>
+      <li> <a href="/subjects/design">Design</a> </li>
+      <li> <a href="/subjects/fashion">Fashion</a> </li>
+      <li> <a href="/subjects/film">Film</a> </li>
+      <li> <a href="/subjects/graphic_design">Graphic Design</a> </li>
+      <li> <a href="/subjects/music">Music</a> </li>
+      <li> <a href="/subjects/music_theory">Music Theory</a> </li>
+      <li> <a href="/subjects/painting__paintings">Painting</a> </li>
+      <li> <a href="/subjects/photography">Photography</a> </li>
+  </ul>
+  <h3>Animals</h3>
+  <ul>
+      <li><a href="/subjects/bears">Bears</a> </li>
+      <li><a href="/subjects/cats">Cats</a> </li>
+      <li><a href="/subjects/kittens">Kittens</a> </li>
+      <li><a href="/subjects/dogs">Dogs</a> </li>
+      <li><a href="/subjects/puppies">Puppies</a> </li>
+  </ul>
+  <h3><a href="/subjects/fiction">Fiction</a></h3>
+  <ul>
+      <li><a href="/subjects/fantasy">Fantasy</a> </li>
+      <li><a href="/subjects/historical_fiction">Historical Fiction</a> </li>
+      <li><a href="/subjects/horror">Horror</a> </li>
+      <li><a href="/subjects/humor">Humor</a> </li>
+      <li><a href="/subjects/literature">Literature</a> </li>
+      <li><a href="/subjects/magic">Magic</a> </li>
+      <li><a href="/subjects/mystery_and_detective_stories">Mystery and detective stories</a> </li>
+      <li><a href="/subjects/plays">Plays</a> </li>
+      <li><a href="/subjects/poetry">Poetry</a> </li>
+      <li><a href="/subjects/romance">Romance</a> </li>
+      <li><a href="/subjects/science_fiction">Science Fiction</a> </li>
+      <li><a href="/subjects/short_stories">Short Stories</a> </li>
+      <li><a href="/subjects/thriller">Thriller</a> </li>
+      <li><a href="/subjects/young_adult_fiction">Young Adult</a> </li>
+  </ul>
+  <h3><a href="/subjects/sciencemathematics">Science &amp; Mathematics</a></h3>
+  <ul>
+      <li><a href="/subjects/biology">Biology</a> </li>
+      <li><a href="/subjects/chemistry">Chemistry</a> </li>
+      <li><a href="/subjects/mathematics">Mathematics</a> </li>
+      <li><a href="/subjects/physics">Physics</a> </li>
+      <li><a href="/subjects/programming">Programming</a> </li>
+  </ul>
+  <h3><a href="/subjects/business">Business &amp; Finance</a></h3>
+</div> -->
   </body>

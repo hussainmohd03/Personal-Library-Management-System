@@ -267,8 +267,9 @@ body {
 }
 
 /* Each individual section */
-.section-left,
-.section-right {
+
+/* .section-right { */
+.section-left{
   width: 1200px;
   background-color: #2980b9;
   border: #ffc107 solid 6px;
@@ -397,6 +398,9 @@ body {
   margin-bottom: 30px;
 }
 
+.myChart {
+  background-color: white;
+}
 
 /* ---------------------------------------------------- Media Queries ---------------------------------------------------- */
 @media (min-width: 1400px) {

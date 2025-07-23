@@ -15,17 +15,28 @@
         <label for="email">Email</label>
         <input type="text" name="email" value="<%= profile.email %>">
         <br>
+
+        <label for="profilePicture">Profile Picture</label>
+        <input type="file" name="profilePicture" accept="image/*" required/>
+        <br />
+
+
+        <!-- <label for="email">Old password</label>
+        <input type="password" name="email" value="<%= profile.password %>">
+        <br> -->
         
-        <label for="old-password">Old password</label>
+        <!-- <label for="old-password">Old password</label>
         <input type="password" id="old-password" name="old-password" />
         
+       -->
 
-        <label for="new password">New password</label>
-        <input type="password" name="new password" >
+
+        <label for="newPassword">New password</label>
+        <input type="password" name="newPassword" <%= profile.password  %>>
         <br>
 
-        <label for="confirm password">Confirm password</label>
-        <input type="password" name="confirm password">
+        <label for="confirmPassword">Confirm password</label>
+        <input type="password" name="confirmPassword" <%= profile.password  %>>
         <br>
 
 
