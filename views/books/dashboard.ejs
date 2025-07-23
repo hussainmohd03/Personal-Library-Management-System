@@ -36,28 +36,7 @@
 
     <script>
           const data = {
-            labels: [
-              'Fiction',
-              'Non-Fiction',
-              'Science-Fiction',
-              'Fantasy',
-              'Mystery',
-              'Thriller',
-              'Romance',
-              'Historical',
-              'Biography',
-              'Self-Help',
-              'Philosophy',
-              'Poetry',
-              'Horror',
-              'Young-Adult',
-              'Children',
-              'Science',
-              'Technology',
-              'Religion',
-              'Art',
-              'Comics'
-            ],
+            labels: <%- JSON.stringify(genres) %>,
             datasets: [
               {
                 label: 'Books by genre',
