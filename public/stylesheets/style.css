@@ -247,6 +247,55 @@ form button[type='submit']:hover,
   background-color: red;
 }
 
+/* break */
+
+
+
+.show-profile-section {
+  display: flex;
+  flex-direction: column;
+  background-color: #2980b9;
+  border-radius: 20px;
+  width: 40%;
+  height: 45%;
+  border: black solid 6px;
+  align-items: center;
+  
+}
+.picture{
+  width: 30%;
+  height: 33%;
+}
+
+.edit-button {
+
+
+  background-color: #7f8c8d;
+  border: black solid 3px;
+
+  
+
+}
+
+.show-History {
+  background-color: #2980b9;
+  width: 100%;
+  height: 45%;
+  border-radius: 20px;
+  display: flex;
+  border: black solid 6px;
+  
+}
+
+.show-Dashboard-section {
+  position: relative;
+  
+}
+
+.profile-page {
+  display: block
+} 
+
 .chart {
   height: 700px;
   width: 700px;
@@ -254,8 +303,30 @@ form button[type='submit']:hover,
   align-self: center;
 }
 
+
 #popularGenres {
   text-align: center;
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+
+/* ---------------------------------------------------- Media Queries ---------------------------------------------------- */
+
+@media screen and (max-width: 600px) {
+  .show-book-section {
+    flex-direction: column;
+    margin-top: 15px;
+  }
+  .book-btns button {
+    text-align: center;
+    width: 13vmin;
+    height: 5vmin;
+    font-size: 2.5vmin;
+  }
+  .delete {
+    margin-right: 35px;
+  }
+}
+
+

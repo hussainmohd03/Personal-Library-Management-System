@@ -29,6 +29,9 @@ exports.books_show_get = async (req, res) => {
 }
 exports.books_edit_get = async (req, res) => {
   const book = await Book.findById(req.params.bookId)
+  if (!book.owner._id.equals(req.session.user._id)) {
+    return res.redirect('/books')
+  }
   res.render('books/edit.ejs', { book })
 }
 exports.books_update_put = async (req, res) => {
@@ -54,6 +57,9 @@ exports.books_search_post = async (req, res) => {
 
 exports.books_borrow_get = async (req, res) => {
   const book = await Book.findById(req.params.bookId)
+  if (!book.owner._id.equals(req.session.user._id)) {
+    return res.redirect('/books')
+  }
   res.render(`books/borrow.ejs`, { book })
 }
 
@@ -69,7 +75,9 @@ exports.books_borrow_put = async (req, res) => {
 //return
 exports.books_return_get = async (req, res) => {
   const book = await Book.findById(req.params.bookId)
-
+  if (!book.owner._id.equals(req.session.user._id)) {
+    return res.redirect('/books')
+  }
   const borrowInfo = book.borrowHistory[book.borrowHistory.length - 1]
 
   res.render(`books/return.ejs`, { book, borrowInfo })
@@ -87,13 +95,19 @@ exports.books_return_put = async (req, res) => {
 
 //borrowed books
 exports.books_index_get_borrowed = async (req, res) => {
-  const books = await Book.find({ isBorrowed: true })
+  const books = await Book.find({
+    isBorrowed: true,
+    owner: req.session.user._id
+  })
+
   res.render('books/borrowed.ejs', { books })
 }
 
 //dashboard
 exports.books_index_get_dashboard = async (req, res) => {
-  let book = await Book.find()
+
+  const book = await Book.find({ owner: req.session.user._id })
+
   const genres = [
     'Fiction',
     'Non-Fiction',

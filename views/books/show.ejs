@@ -25,7 +25,7 @@
       <a href="/books/<%= book._id %>/edit" class="edit-btn"><button>Edit Book</button></a>
       <% if (!book.isEbook) { %>
       <% if(book.isBorrowed){ %>
-        <a href="/books/<%= book._id %>/return" class="edit-btn"><button>Return the book</button></a>
+        <a href="/books/<%= book._id %>/return" class="edit-btn"><button>Register as returned</button></a>
       <%}else{%>
       <a href="/books/<%= book._id %>/borrow" class="edit-btn"><button>Register as Borrowed</button></a>
       <%}%>
@@ -33,7 +33,7 @@
         <a href="<%= book.ebookPath %>" class="edit-btn" target="_blank"><button>Read</button></a>
         <%}%>
       <form action="/books/<%= book._id %>?_method=DELETE" method="POST" class="delete">
-        <button type="submit" id="delete-btn">Delete <%= book.title %></button>
+        <button type="submit" id="delete-btn">Delete</button>
       </form>
     </div>
     </div>

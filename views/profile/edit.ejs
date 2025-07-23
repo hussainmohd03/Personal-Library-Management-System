@@ -1,0 +1,24 @@
+<head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  
+  <%- include('../partials/_nav') %>
+  
+  <section class="profileInfo">
+  
+    <form action="/books/<%= book._id  %>?_method=PUT" method="POST"> 
+        
+        <label for="username">Username</label>
+        <input type="text" name="username" value="<%= profile.username %>">
+        <br>
+        
+        <label for="email">Email</label>
+        <input type="text" name="email" value="<%= profile.email %>">
+        <br>
+        
+    </form>
+    
+</section>
+
+
+<!-- <form action="/profile" method="get"> -->

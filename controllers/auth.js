@@ -26,6 +26,7 @@ exports.auth_signup_post = async (req, res) => {
   res.send(`Your username is ${user.username}, Thank you for signing up`)
 }
 
+
 exports.auth_signin_get = async (req, res) => {
   res.render('auth/sign-in.ejs')
 }
