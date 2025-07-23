@@ -107,8 +107,7 @@ exports.books_index_get_borrowed = async (req, res) => {
 
 //dashboard
 exports.books_index_get_dashboard = async (req, res) => {
-
-  const book = await Book.find({ owner: req.session.user._id })
+  let book = await Book.find({ owner: req.session.user._id })
 
   const genres = [
     'Fiction',
