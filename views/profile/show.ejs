@@ -3,28 +3,28 @@
 
   <body>
     <div class="profile-page">
+      <div class="container">
+        <div class="section-left">
+          <h2>Profile Info</h2>
+          <img src="<%= user.profilePicture %>" alt="Profile Picture" class="picture" />
+          <br>
+          <p>Your username: <%= user.username %>
+          </p>
+          <p>Your email: <%= user.email %>
+          </p>
+          <button type="button" class="edit-button">Edit profile
+            <a href=""></a>
+          </button>
 
-      <section class="show-profile-section">
-        <h3>Profile Info</h3>
-        <img src="<%= user.profilePicture %>" alt="Profile Picture" class="picture"/>
-        <br>
-        <p>Your username: <%= user.username  %></p>
-        <p>Your email: <%= user.email  %> </p>
+        </section>
+        </div>
+        <div class="section-right">
+          <h2>Dashboard</h2>
+        </div>
+      </div>
 
-        <button type="button" class="edit-button" >Edit profile
-          <a href=""></a>
-        </button>
+      <section class="show-History"><h2>History</h2></section>
 
-      </section>
-
-      <section class="show-Dashboard-section">
-
-
-      </section>
-
-      <section class="show-History"></section>
-
-      <section class="show-Dashboard-section"></section>
     </div>
 
 
