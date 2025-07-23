@@ -107,8 +107,7 @@ exports.books_index_get_borrowed = async (req, res) => {
 
 //dashboard
 exports.books_index_get_dashboard = async (req, res) => {
-
-  const book = await Book.find({ owner: req.session.user._id })
+  let book = await Book.find({ owner: req.session.user._id })
 
   const genres = [
     'Fiction',
@@ -154,19 +153,22 @@ exports.books_index_get_dashboard = async (req, res) => {
     }
   }
 
-  //fisher yates shuffle function:
-  let shuffle = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
+  //fisher yates shuffle function:-
+  let shBooks = book
+
+  shBooks = shBooks.filter((el) => el.genre === popularGenre)
+  for (let i = shBooks.length - 1; i > 0; i--) {
+    if (shBooks[i].genre === popularGenre) {
       let j = Math.floor(Math.random() * (i + 1))
-      ;[array[i], array[j]] = [array[j], array[i]]
+      ;[shBooks[i], shBooks[j]] = [shBooks[j], shBooks[i]]
     }
-    return array
   }
 
-  book = shuffle(book).slice(0, 2) //only print two books
+  shBooks = shBooks.slice(0, 2)
+
 
   res.render('books/dashboard.ejs', {
-    book,
+    book: shBooks,
     genreCounts,
     popularGenre
   })
