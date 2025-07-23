@@ -35,6 +35,20 @@ exports.books_edit_get = async (req, res) => {
   res.render('books/edit.ejs', { book })
 }
 exports.books_update_put = async (req, res) => {
+  if (req.body.isEbook === 'on') {
+    req.body.isEbook = true
+    if (req.files.ebookPath[0]) {
+      req.body.ebookPath = req.files.ebookPath[0].path
+      req.body.ebookPath = req.body.ebookPath.replace('public', '')
+    }
+  } else if (req.body.isEbook !== 'on') {
+    req.body.isEbook = false
+  }
+
+  if (req.files.imgUrl) {
+    req.body.imgUrl = req.files.imgUrl[0].path
+    req.body.imgUrl = req.body.imgUrl.replace('public', '')
+  }
   await Book.findByIdAndUpdate(req.params.bookId, req.body)
   res.redirect(`/books/${req.params.bookId}`)
 }
@@ -165,7 +179,6 @@ exports.books_index_get_dashboard = async (req, res) => {
   }
 
   shBooks = shBooks.slice(0, 2)
-
 
   res.render('books/dashboard.ejs', {
     book: shBooks,
