@@ -93,7 +93,7 @@ exports.books_index_get_borrowed = async (req, res) => {
 
 //dashboard
 exports.books_index_get_dashboard = async (req, res) => {
-  const book = await Book.find()
+  let book = await Book.find()
   const genres = [
     'Fiction',
     'Non-Fiction',
@@ -116,7 +116,7 @@ exports.books_index_get_dashboard = async (req, res) => {
     'Art',
     'Comics'
   ]
-  const bookGenre = book.map((book) => book.genre)
+  // const bookGenre = book.map((book) => book.genre) creates an array of just genres
 
   //loop
   const genreCounts = genres.map((genre) => {
@@ -128,7 +128,6 @@ exports.books_index_get_dashboard = async (req, res) => {
     }
     return count
   })
-  //genres[populargenre]
 
   let popularGenre
   let j = 0
@@ -138,7 +137,17 @@ exports.books_index_get_dashboard = async (req, res) => {
       popularGenre = genres[i]
     }
   }
-  console.log(j, popularGenre)
+
+  //fisher yates shuffle function:
+  let shuffle = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1))
+      ;[array[i], array[j]] = [array[j], array[i]]
+    }
+    return array
+  }
+
+  book = shuffle(book).slice(0, 2) //only print two books
 
   res.render('books/dashboard.ejs', {
     book,
