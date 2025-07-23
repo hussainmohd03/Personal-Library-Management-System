@@ -2,6 +2,9 @@
 
 <section class="signUp-form">
   <h1>Create a New Account</h1>
+  <% if(typeof errMsg !== 'undefined') {%>
+  <h2 id="errMsg"><%=errMsg%></h2>
+  <% }%>
 
   <form action="/auth/sign-up" method="POST" enctype="multipart/form-data">
     <label for="email">email</label>
@@ -12,7 +15,7 @@
     <br />
 
     <label for="profilePicture">Profile Picture</label>
-    <input type="file" name="profilePicture" accept="image/*" required/>
+    <input type="file" name="profilePicture" accept="image/*" required />
     <br />
 
     <label for="password">Password</label>

@@ -387,11 +387,15 @@ body {
   margin-top: 30px;
   margin-bottom: 30px;
 }
-
+#errMsg {
+  font-size: 15px;
+  justify-self: center;
+  color: red;
+}
 /* ---------------------------------------------------- Media Queries ---------------------------------------------------- */
 @media (min-width: 1400px) {
   .container2 {
-    max-width: 100%;
+        max-width: 100%;
   }
 }
 
@@ -422,5 +426,12 @@ body {
 
   .borrowed-book-info {
     padding: 1rem;
+  }
+  .chart {
+    margin-top: 1.5rem;
+    height: 150%;
+    width: 500px;
+    justify-self: center;
+    align-self: center;
   }
 }
