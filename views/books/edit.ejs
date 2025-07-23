@@ -3,7 +3,7 @@
 <section class="edit-book-form">
   <h1>Edit Book</h1>
 
-  <form action="/books/<%= book._id  %>?_method=PUT" method="POST">
+  <form action="/books/<%= book._id  %>?_method=PUT" method="POST" enctype="multipart/form-data">
     <label for="title">Title:</label>
     <input type="text" name="title" id="title" value="<%= book.title %>"/>
     <br />
@@ -54,7 +54,7 @@
       <label for="isEbook">is E-book:</label>
     <input type="checkbox" name="isEbook" id="isEbook" checked/>
     <br />
-    <label for="ebookPath">E-book:</label>
+    <label for="ebookPath">E-book: <%= book.ebookPath.replace('\\uploads\\','') %></label>
     <input type="file" name="ebookPath" id="ebookPath" />
     <br />
   <% } %>
