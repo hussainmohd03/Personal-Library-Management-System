@@ -40,7 +40,11 @@ This project is a web-based application to help you **manage and track your pers
 
 ### 🖼 Wireframes
 
+[wireframes]()
+
 ### ERD (Entity Relationship Diagram)
+
+[ERD]()
 
 ---
 
@@ -65,7 +69,7 @@ This project is a web-based application to help you **manage and track your pers
 - **Book Details:** View details, mark as borrowed/returned, or download e-books.
 - **Register/Login:** Secure your library with user authentication.
 - **Return:** Mark books as returned.
-- **Admin Panel:** Manage your collection and borrowing records (admin only).
+- **Admin Panel:** Manage your collection and borrowing records.
 
 ---
 
