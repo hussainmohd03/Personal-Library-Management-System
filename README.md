@@ -107,14 +107,12 @@ This project is a web-based application to help you **manage and track your pers
 
 13. **As an admin**, I want to **edit or delete book entries or borrowing records** so that **I can correct errors or remove outdated information**.
 
-14. **As an admin**, I want to **manage user accounts** so that **I can ensure appropriate access and permissions**.
-
 
 ### Home & Navigation
 
-15. **As a user**, I want to **see featured or recommended books on the home page** so that **I can quickly discover interesting reads from my own collection**.
+14. **As a user**, I want to **see featured or recommended books** so that **I can quickly discover interesting reads from my own collection**.
 
-16. **As a user**, I want to **navigate easily between pages like Home, Books, Borrowed, and Admin Panel** so that **I can manage my library efficiently**.
+15. **As a user**, I want to **navigate easily between pages like Home, Books, Borrowed, and Admin Panel** so that **I can manage my library efficiently**.
 
 
 ### **_Screenshots_**
