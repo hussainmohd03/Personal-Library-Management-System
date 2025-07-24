@@ -49,7 +49,7 @@ The Personal Library Management System enables users to:
 
 ### 🔷 Jira Board
 
-[📎 View Jira board](assets/ERD/Database_ER_diagram.png)
+[📎 View Jira board](assets/jiraboard.png)
 
 ## 🚀 Getting Started
 
