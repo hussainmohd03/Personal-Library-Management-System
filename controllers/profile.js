@@ -50,6 +50,10 @@ exports.profile_edit_put = async (req, res) => {
   const user = await User.findById(req.session.user._id)
   const profile = await User.findByIdAndUpdate(req.params._id, req.body)
 
+  if (req.file) {
+    req.body.profilePicture = req.file.path
+    req.body.profilePicture = req.body.profilePicture.replace('public', '')
+  }
   const validPassword = bcrypt.compareSync(req.body.oldPassword, user.password)
   if (!validPassword) {
     errMsg = 'Your password is incorrect!'

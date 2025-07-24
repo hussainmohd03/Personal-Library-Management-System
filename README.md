@@ -41,18 +41,22 @@ The Personal Library Management System enables users to:
 
 ### 🖼 Wireframes
 
-[📎 View wireframes](#) _(link to PDF or Figma)_
+[📎 View wireframes](/assets/wireframes/)
 
 ### 🗂 ERD (Entity Relationship Diagram)
 
-[📎 View ERD](#) _(link to image or diagram tool)_
+[📎 View ERD](assets/ERD/Database_ER_diagram.png)
+
+### 🔷 Jira Board
+
+[📎 View Jira board](assets/ERD/Database_ER_diagram.png)
 
 ## 🚀 Getting Started
 
 ### 🧰 Prerequisites
 
-- Node.js v18+
-- npm or yarn
+- Node.js
+- npm
 - MongoDB (local or Atlas)
 - Git
 
