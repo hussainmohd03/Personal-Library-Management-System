@@ -64,7 +64,7 @@ cd personal-library-app
 npm install
 ```
 
-### 📦 Setup Environment
+### ⚙️ Setup Environment
 
 ```
 PORT=3010
