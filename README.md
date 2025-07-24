@@ -18,7 +18,6 @@
 - [User Stories](#-user-stories)
 - [Screenshots](#-screenshots)
 - [Future Updates](#-future-updates)
-- [Credits](#-credits)
 
 ## 📖 Overview
 
