@@ -105,14 +105,6 @@ SESSION_SECRET=<add your session secret>
 
 - As a user, I want to mark a book as returned so that my collection stays up-to-date.
 
-### 🔄 Borrow & Return Tracking
-
-- As a user, I want to mark a book as borrowed so that I can track which books are currently lent out.
-
-- As a user, I want to see who borrowed a book and when so that I know when to expect it back.
-
-- As a user, I want to mark a book as returned so that my collection stays up-to-date.
-
 ### 📥 E-Book Support
 
 - As a user, I want to upload e-books to my collection so that I can store and organize digital books.
