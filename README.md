@@ -62,8 +62,8 @@ The Personal Library Management System enables users to:
 ### 📦 Installation
 
 ```bash
-git clone https://github.com/yourusername/personal-library-app.git
-cd personal-library-app
+git clone https://github.com/hussainmohd03/Personal-Library-Management-System
+cd Personal-Library-Management-System
 npm install
 ```
 
