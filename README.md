@@ -26,7 +26,7 @@ The Personal Library Management System enables users to:
 - 📘 Add and manage books (physical + digital)
 - 🔍 Search and filter their library
 - 🔁 Track borrowing and return records
-- 🛠 Access admin dashboard for control
+- 🛠 Access dashboard for information about their collection
 - 🔐 Use user authentication for security
 
 ## 🛠 Technologies Used
